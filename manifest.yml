@@ -1,0 +1,7 @@
+---
+applications:
+- buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+  host: simple-website-Gesus
+  name: simple-website-Jesus
+  memory: 64M
+  stack: cflinuxfs2
