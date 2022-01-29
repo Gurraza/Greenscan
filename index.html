@@ -1,54 +1,107 @@
 <!-- Todo
-	Special fonts
-	Nav bar
-		Search query
-	Bot
-	Footer
+	Filters
+	Chat-bot
+-->
+
+<!-- Notes
+	All code = English
+	All end-user text = Swedish
 -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 
 <head>
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="style.css" />
-	<link rel="shortcut icon" href="assets/Favicon.png" />
+	<link rel="shortcut icon" href="assets/Favicon.ico" />
 	<title>Greenscan</title>
 </head>
 
 <body>
 
+	<!-- Back to top arrow -->
+	<a href="#top" id="to-top-arrow">&#x2B06;</a>
+
+	<!-- Header -->
 	<header>
 		<h1>Greenscan</h1>
 	</header>
 
-	<nav>
-		<ul>
-			<li>
-				<img src="assets/scanBarcode.png" alt="Scan Barcode">
-			</li>
-			<li>
-				<form onsubmit="submitForm();" id="navForm">
-					<input type="text" name="search" placeholder="Search..." />
-					<input type="image" src="assets/Search.png" />
-				</form>
-			</li>
-			<li>
-				<img src="assets/UK Flag.png" alt="For English" id="forEnglish" />
-			</li>
-		</ul>
-	</nav>
+	<!-- Content -->
+	<div id="content-container">
+		<!-- Nav-bar -->
+		<nav>
+			<ul>
+				<li id="scan-barcode">
+					<a href="https://pageloot.com/barcode-scanner/#upload" target="_blank">
+						<img src="assets/Scan-Barcode.jpg" alt="Scan Barcode" title="Skanna streckkod" />
+					</a>
+				</li>
+				<li id="searchbar">
+					<form id="navForm">
+						<input type="text" name="search" id="search" placeholder="Sök..." autocomplete="off" />
+						<input type="image" src="assets/Search.png" />
+					</form>
+				</li>
+				<li id="translate-english">
+					<a href="#">
+						<img src="assets/UK-Flag.png" alt="Translate to English" title="Translate to English" />
+						<p>For English</p>
+					</a>
+				</li>
+			</ul>
+		</nav>
 
-	<section id="">
+		<!-- First Section -->
+		<section>
+			<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas saepe mollitia, perspiciatis quod officiis doloremque pariatur laborum, repellendus ipsa fuga sint alias numquam non. Odio aperiam vel impedit quis. Repellendus quam libero dolorem. Tenetur sapiente culpa distinctio qui ex odio voluptatum animi. Quam quis, quae veritatis quidem laborum consectetur corrupti? Similique eius odio quibusdam necessitatibus, recusandae fugiat ducimus repudiandae enim ut distinctio iure hic iste veritatis nihil reiciendis excepturi dolorum impedit dignissimos! Eveniet veritatis culpa fugiat autem aliquid eaque quisquam, velit voluptatum sequi harum ipsam nesciunt facere dolorum dolorem impedit quis unde asperiores qui consectetur eligendi earum fuga sint accusamus?</p>
 
-	</section>
+			<div id="parallax1"></div>
 
-	<footer>
+			<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum quas, reprehenderit cum optio quidem illo ullam perferendis fugit molestias tenetur temporibus rem at tempora adipisci porro laboriosam, enim sapiente est nostrum nulla esse. A, in! Libero consequatur nam dolor, fugiat iste sequi. Aut, asperiores praesentium, ipsum ab est consequatur possimus neque vitae quaerat quo quas ullam tempora? Architecto, voluptatem ipsum molestiae nostrum aliquid dolorum harum quaerat hic. Enim expedita incidunt, mollitia omnis officiis quia dolor libero deleniti voluptate qui itaque aliquam dolore, fuga necessitatibus, nam totam recusandae. Asperiores accusamus eius ipsam. Inventore provident ex optio necessitatibus ullam reprehenderit suscipit et?</p>
+		</section>
 
-	</footer>
+		<!-- Footer -->
+		<footer>
+			<!-- Logo -->
+			<div id="footer-logo">
+				<a href="#">
+					<img src="assets/Logo.png" alt="Logo" title="Greenscan Logo" />
+					<h2>Greenscan</h2>
+				</a>
+			</div>
 
+			<!-- Link list -->
+			<ul id="footer-link-list">
+				<li><a href="#">Om oss</a></li>
+				<li><a href="#">Kontakta oss</a></li>
+				<li><a href="#">Återkoppling</a></li>
+				<li><a href="#"></a></li>
+			</ul>
+
+			<!-- Contact Info -->
+			<div id="footer-contact-info">
+				<p>Greenscan</p>
+				<a href="https://discord.com/" target="_blank"><img src="assets/Discord-logo.png" alt="Discord-logo" id="discord-logo" title="Discord" /></a>
+				<a href="https://github.com/legogurkan/Greenscan" target="_blank"><img src="assets/GitHub-logo.png" alt="GitHub-logo" id="github-logo" title="Github" /></a>
+			</div>
+
+			<!-- Copyright & License -->
+			<p id="footer-license">&copy; 2022 Greenscan. Innehållet är tillgängligt under <a href="https://choosealicense.com/" id="footer-these-licenses">dessa licenser</a>.</p>
+
+			<!-- Policies -->
+			<ul id="footer-legal">
+				<li><a href="#">Villkor</a></li>
+				<li><a href="#">Integritet</a></li>
+				<li><a href="#">Kakor</a></li>
+			</ul>
+		</footer>
+	</div>
+
+	<!-- Linking Javascript -->
 	<script src="script.js"></script>
 </body>
 

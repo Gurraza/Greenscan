@@ -1,37 +1,139 @@
+/* Notes
+	Gradients
+		http://www.brandgradients.com/green-gradient/
+		https://cssgradient.io/
+	Images
+	https://duckduckgo.com/?q=tulip+field+wallpaper&t=opera&iar=images&iax=images&ia=images&iai=https%3A%2F%2Fimages5.alphacoders.com%2F696%2F696134.jpg
+*/
+
+
+/*===== Fonts =====*/
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap'); /* Righteous */
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap'); /* Oswald */
+
+
+/*===== Media Rules =====*/
+@media only screen and (max-width: 700px) {
+	#content-container {
+		padding: 0;
+	}
+	nav, section, footer {
+		border-radius: 2px;
+	}
+}
+
+@media only screen and (min-width: 701px) {
+	nav, section, footer {
+		border-radius: 10px;
+	}
+}
+
+@media only screen and (min-width: 701px) and (max-width: 800px) {
+	#content-container {
+		padding: 0 50px;
+	}
+}
+
+@media only screen and (min-width: 801px) and (max-width: 900px) {
+	#content-container {
+		padding: 0 100px;
+	}
+}
+
+@media only screen and (min-width: 901px) {
+	#content-container {
+		padding: 0 150px;
+	}
+}
+
+
+/*===== Elements =====*/
+
 html {
 	scroll-behavior: smooth;
+	cursor: auto;
 }
 
 body {
-	background-color: #c9c99e;
+	background-color: #8fa854;
 	overflow-x: hidden;
 	padding: 0;
 	margin: 0;
+	height: 100%;
+	overflow-x: hidden;
 }
 
-header {
-	background-color: red;
+a {
+	text-decoration: underline;
+}
+
+a:hover, a:visited {
+	text-decoration: none;
+}
+
+#to-top-arrow {
+	visibility: hidden;
+	opacity: 0;
+	display: block;
+	text-decoration: none;
+	position: fixed;
+	bottom: 30px;
+	right: 40px;
+	z-index: 99;
+	border: none;
+	outline: none;
+	background-color: #008500;
+	color: white;
+	padding: 10px 22px;
+	border-radius: 10px;
+	font-size: 30px;
+}
+
+#to-top-arrow:hover {
+	background-color: #007500;
 }
 
 h1 {
 	text-align: center;
+	font-size: 50px;
+	font-family: 'Righteous', cursive;
+	color: #068f06;
+	letter-spacing: 5px;
+}
+
+#content-container {
+	max-width: 1000px;
+	margin: 0 auto;
 }
 
 nav {
-	background-color: green;
+	background: #8fda2e;
+	background: linear-gradient(180deg, #8fda2e 0%, #499700 100%);
+	position: sticky;
 	width: 100%;
+	height: max-content;
+	top: 0;
+	font-family: 'Oswald', sans-serif;
+	font-size: 16px;
+	letter-spacing: 1px;
+	z-index: 9;
 }
 
 nav ul {
 	list-style-type: none;
+	padding: 4px 0 0 0;
+	text-align: center;
 }
 
 nav ul li {
 	display: inline-block;
+	vertical-align: middle;
 }
 
 nav ul li form input {
 	vertical-align: middle;
+	border-radius: 5px;
+	padding: 5px;
 }
 
 nav ul li form input[type=image] {
@@ -39,12 +141,149 @@ nav ul li form input[type=image] {
 	height: 25px;
 }
 
-#forEnglish {
-	width: 50px;
+#scan-barcode {
+	margin: 0 3%;
+}
+
+#scan-barcode a img {
+	border-radius: 10px;
+	border: 2px solid black;
+	width: 125px;
+}
+
+#searchbar {
+	margin: 0 5%;
+}
+
+#translate-english {
+	margin: 0 5%;
+	line-height: 0;
+	font-weight: bold;
+}
+
+#translate-english a {
+	color: black;
+}
+
+#translate-english a img {
+	width: 75px;
 	border-radius: 5px;
+	margin-top: 15px;
+}
+
+section {
+	background-color: #5E9C5E;
+	background: #5E9C5E;
+	background: linear-gradient(0deg, #5E9C5E 0%, #8BBE1C 100%);
+	padding: 15px;
+	margin: 16px 0;
+	font-size: 16px;
+
+}
+
+#parallax1 {
+	background-image: url("assets/Tulip-field.jpg");
+	min-height: 500px;
+	background-attachment: fixed;
+	background-position:top;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 footer {
-	background-color: blue;
-	min-height: 30px;
+	background-color: #1b1b1b;
+	min-height: 200px;
+	color: white;
+	font-size: 16px;
+	font-family: sans-serif;
+	padding: 48px;
+	line-height: 1.5;
+	text-align: center;
+}
+
+footer a, footer a:hover, footer:visited {
+	color: white;
+	text-decoration: none;
+}
+
+footer a:hover {
+	text-decoration: underline;
+}
+
+#footer-logo {
+	margin-bottom: 24px;
+}
+
+#footer-logo a, #footer-logo a:hover, #footer-logo a:visited {
+	text-decoration: none;
+}
+
+#footer-logo a > * {
+	display: inline;
+	vertical-align: middle;
+	margin-right: 10px;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+
+#footer-logo a img {
+	width: 50px;
+	filter: brightness(1.2);
+	border-radius: 5px;
+	border: 1px ridge white;
+}
+
+#footer-link-list {
+	list-style-type: none;
+	display: inline-block;
+	padding: 0;
+}
+
+#footer-link-list li {
+	padding: 10px 0;
+}
+
+#footer-contact-info > * {
+	display: inline-block;
+	margin-right: 15px;
+}
+
+#footer-contact-info a img {
+	vertical-align: middle;
+	width: 18px;
+}
+
+#discord-logo {
+	filter: brightness(3); /* White */
+	transition: filter 0.2s;
+}
+
+#discord-logo:hover {
+	filter: brightness(1); /* Blue */
+	transition: filter 0.2s;
+}
+
+#github-logo {
+	filter: invert(0);  /* White */
+	transition: filter 0.2s;
+}
+
+#github-logo:hover {
+	filter: invert(0.7);  /* Black */
+	transition: filter 0.2s;
+}
+
+#footer-license {
+	border-top: 1px solid #f4f4f4;
+	padding: 30px 0 0 0;
+	margin: 50px 0 30px 0;
+}
+
+#footer-these-licenses {
+	text-decoration: underline;
+}
+
+#footer-legal li {
+	display: inline;
+	margin-right: 10px;
 }
