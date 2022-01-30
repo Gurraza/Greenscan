@@ -34,6 +34,7 @@ function scrollFunction() {
 function showError(e) {
 	console.error(e);
 	alert(e);
+	document.getElementById('searchbar-login-button').classList.remove("hidden");
 }
 
 function success(decodeIDToken) {
