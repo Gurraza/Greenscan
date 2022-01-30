@@ -4,7 +4,7 @@
 
 <!-- Notes
 	All code = English
-	All end-user text = Swedish
+	All end-users text = Swedish
 -->
 
 <!DOCTYPE html>
@@ -22,10 +22,10 @@
 <body>
 
 	<!-- Back to top arrow -->
-	<a href="#top" id="to-top-arrow">&#x2B06;</a>
+	<a href="#top" id="to-top-arrow" title="Gå till Toppen">&#x2B06;</a>
 
 	<!-- Header -->
-	<button style="opacity: 0.1;" onclick="test();">FELSÖKNING</button>
+	<button style="opacity: 0.1;" onclick="loginDebugging();" title="Klicka för att komma till en demo-inloggingssida">FELSÖKNING</button>
 	<header>
 		<h1>Greenscan</h1>
 	</header>
@@ -37,14 +37,14 @@
 			<ul>
 				<li id="scan-barcode">
 					<a href="https://pageloot.com/barcode-scanner/#upload" target="_blank">
-						<img src="assets/Scan-Barcode.jpg" alt="Scan Barcode" title="Skanna streckkod" />
+						<img src="assets/Scan-Barcode.jpg" alt="Scan Barcode" title="Skanna en artikels streckkod" />
 					</a>
 				</li>
 				<li id="searchbar">
-					<button id="searchbar-login-button">Logga in</button>
+					<button id="searchbar-login-button" title="Logga in på ditt konto">Logga in</button>
 					<form id="navForm">
 						<input type="text" name="search" id="search" placeholder="Sök..." autocomplete="off" />
-						<input type="image" src="assets/Search.png" />
+						<input type="image" src="assets/Search.png" title="Sök!" />
 					</form>
 				</li>
 				<li id="translate-english">
@@ -59,7 +59,15 @@
 		<!-- First Section -->
 		<section>
 			<h2 id="section-first-title">Om Oss</h2>
-			<p id="after-login">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas saepe mollitia, perspiciatis quod officiis doloremque pariatur laborum, repellendus ipsa fuga sint alias numquam non. Odio aperiam vel impedit quis. Repellendus quam libero dolorem. Tenetur sapiente culpa distinctio qui ex odio voluptatum animi. Quam quis, quae veritatis quidem laborum consectetur corrupti? Similique eius odio quibusdam necessitatibus, recusandae fugiat ducimus repudiandae enim ut distinctio iure hic iste veritatis nihil reiciendis excepturi dolorum impedit dignissimos! Eveniet veritatis culpa fugiat autem aliquid eaque quisquam, velit voluptatum sequi harum ipsam nesciunt facere dolorum dolorem impedit quis unde asperiores qui consectetur eligendi earum fuga sint accusamus?</p>
+			<p id="section-first-text">
+				Greenscan är ett företag som jobbar mot en klimatsmartare vardag, där appen och denna hemsida förser användaren med information om recept, produkter och artiklar som primärt är klimatsmarta. Andra filtreringar kan också vara närproducerat, ekologiskt och självklart pris. Vi anväder oss utav avancerade algoritmer med hjälp utav AI för att filtrera och rekommendera mat till just dig! Dessutom har vi en högst sofistikerad chattbott till din förfogan som befinner sig i det nedersta högra hörnet av din skärm, där du kan ställa alla dina frågor angående artiklar mellan jord till bord.
+			</p>
+			<p class="section-other-text">
+				När du skapar ett konto hos oss får du tillgång till att sätta personliga mål för dina koldioxidutsläpp. Dessa mål kan du anpassa till dina behov och önskningar. Utöver detta finns det topplistor för den som har presterat bäst under en viss period. Detta är helt frivilligt att ta del i, med det finns priser med, för dem som kämpar hårt! Detta kan till exempelvis vara ett presentkort hos våran sponsor, ICA!
+			</p>
+			<p class="section-other-text">
+				Lorem ipsum dolor sit amet.
+			</p>
 			<h2>Recept</h2>
 			<!--https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-background-->
 			<!--https://www.ica.se/sok/#:search=kött-->
@@ -107,7 +115,7 @@
 			</div>
 			<br /><br />
 			<!-- Vet inte om vi ska ha parallax i <section>. Detta är mest ett exemepl på hur/att man kan ha en -->
-			<div id="parallax1"></div>
+			<!--<div id="parallax1"></div>-->
 		</section>
 
 		<!-- Footer -->
@@ -115,7 +123,7 @@
 			<!-- Logo -->
 			<div id="footer-logo">
 				<a href="#">
-					<img src="assets/Logo.png" alt="Logo" title="Greenscan Logo" />
+					<img src="assets/Logo.png" alt="Logo" title="Greenscan's logotyp" />
 					<h2>Greenscan</h2>
 				</a>
 			</div>
@@ -145,14 +153,15 @@
 				<li><a href="#">Kakor</a></li>
 			</ul>
 			<br />
-			<img src="assets/Hallert.gif" alt="Gustaf Hallert" id="footer-hallert" title="Gustaf Hallert" />
+			<img src="assets/Hallert.gif" id="footer-hallert" alt="Gustaf Hallert som demonstrerar företagets berömda dans" title="Gustaf Hallert som demonstrerar företagets berömda dans" />
 		</footer>
 	</div>
 
 	<!-- Linking Javascript -->
 	<script src="https://cdn.appid.cloud.ibm.com/appid-1.0.1.min.js"></script>
 	<script src="script.js"></script>
-	<!--Chattbot-->
+
+	<!-- Chatbot -->
 	<script>
 		window.watsonAssistantChatOptions = {
 			integrationID: "cff0441d-173c-40f7-a7b1-2d9807b10233", // The ID of this integration.

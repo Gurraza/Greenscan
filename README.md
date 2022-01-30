@@ -4,4 +4,4 @@ Greenscan är en idé, som försöker lösa en av dem globala mål som Hack Your
 
 ## Viktigt att veta
 
-Endast 20st inloggningar är tillåtna per dag - så logga inte in i onödan!
+Endast **20st inloggningar** är tillåtna per dag - så logga inte in i onödan!

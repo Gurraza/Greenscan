@@ -122,7 +122,7 @@ a:hover, a:visited {
 
 /* Header */
 header {
-	margin-top: 100px;
+	margin-top: 30px;
 }
 
 h1 {
@@ -243,6 +243,7 @@ section {
 	margin: 16px 0;
 	font-size: 16px;
 	color: black;
+	line-height: 1.5;
 }
 
 section h2 {
@@ -312,7 +313,7 @@ footer {
 	padding: 48px;
 	line-height: 1.5;
 	text-align: center;
-	margin-bottom: 50px;
+	margin-bottom: 100px;
 	overflow: hidden;
 }
 

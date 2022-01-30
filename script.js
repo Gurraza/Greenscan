@@ -39,7 +39,7 @@ function showError (error) {
 
 function success (decodeIDToken) {
     document.getElementById("section-first-title").textContent = `Hej, ${decodeIDToken.name}`;
-    const sectionFirstText = document.getElementById("after-login");
+    const sectionFirstText = document.getElementById("section-first-text");
     sectionFirstText.innerHTML = "<h3>Prestation</h3>Ditt mål är: <strong>55 kg CO<sub>2</sub></strong><br />Ditt utsläpp: <strong>21.4 kg CO<sub>2</sub></strong><br />";
 }
 (async function () {
@@ -59,8 +59,14 @@ function success (decodeIDToken) {
     })
 })()
 
-function test() {
-	document.getElementById("section-first-title").textContent = `Hej, Dan The Man`;
-	const sectionFirstText = document.getElementById("after-login");
+function loginDebugging() {
+	document.getElementById("section-first-title").textContent = `Tjenare, Dan The Man`;
+	const sectionFirstText = document.getElementById("section-first-text");
 	sectionFirstText.innerHTML = "<h3>Prestation för denna månad</h3><p>Ditt mål: <strong>55 kg CO<sub>2</sub></strong></p><p>Ditt utsläpp: <strong>21.4 kg CO<sub>2</sub></strong></p><p>Din plats på topplistan: <strong>247</strong></p>";
+	const sectionOtherText = document.getElementsByClassName("section-other-text");
+	for(let i = 0; i < sectionOtherText.length; i++) {
+		sectionOtherText[i].setAttribute("class", `${sectionOtherText[i].className} hidden`);
+		console.log(sectionOtherText[i])
+	}
+	document.getElementById("searchbar-login-button").setAttribute("class", "hidden");
 }
