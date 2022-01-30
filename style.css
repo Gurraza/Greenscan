@@ -10,6 +10,7 @@
 /*===== Fonts =====*/
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap'); /* Righteous */
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap'); /* Oswald */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap'); /* Open Sans */
 
 
 /*===== Media Rules =====*/
@@ -46,6 +47,25 @@
 	}
 }
 
+/*===== Scrollbar =====*/
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #b668d4;
+	background: linear-gradient(0deg, #b668d4 0%, #8479ec 66%, #2C83AA 100%);
+	border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: #a35ebe;
+	background: linear-gradient(0deg, #a35ebe 0%, #796fd8 66%, #2a779b 100%);
+}
 
 /*===== Elements =====*/
 
@@ -61,6 +81,12 @@ body {
 	margin: 0;
 	height: 100%;
 	overflow-x: hidden;
+	background-image: url("assets/Background.jpg");
+	min-height: 500px;
+	background-attachment: fixed;
+	background-position:top;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 a {
@@ -71,6 +97,7 @@ a:hover, a:visited {
 	text-decoration: none;
 }
 
+/* To Top Arrow */
 #to-top-arrow {
 	visibility: hidden;
 	opacity: 0;
@@ -82,33 +109,38 @@ a:hover, a:visited {
 	z-index: 99;
 	border: none;
 	outline: none;
-	background-color: #008500;
 	color: white;
 	padding: 10px 22px;
 	border-radius: 10px;
 	font-size: 30px;
+	background-color: #be1bff;
+	background: linear-gradient(180deg, #a05abc 0%, #645abc 66%, #2C83AA 100%);
 }
 
 #to-top-arrow:hover {
-	background-color: #007500;
+	filter: opacity(0.85);
 }
 
+/* Header */
 h1 {
 	text-align: center;
 	font-size: 50px;
-	font-family: 'Righteous', cursive;
-	color: #068f06;
+	font-family: 'Open Sans', sans-serif;
+	/*color: #068f06;*/
+	color: #f6f6ff;
 	letter-spacing: 5px;
 }
 
+/* Content Container */
 #content-container {
 	max-width: 1000px;
 	margin: 0 auto;
 }
 
+/* Nav-bar */
 nav {
-	background: #8fda2e;
-	background: linear-gradient(180deg, #8fda2e 0%, #499700 100%);
+	background-color: #be1bff;
+	background: linear-gradient(180deg, #a05abc 0%, #645abc 66%, #2C83AA 100%);
 	position: sticky;
 	width: 100%;
 	height: max-content;
@@ -123,10 +155,12 @@ nav ul {
 	list-style-type: none;
 	padding: 4px 0 0 0;
 	text-align: center;
+	justify-content: center;
+	display: flex;
+	flex-flow: row wrap;
 }
 
 nav ul li {
-	display: inline-block;
 	vertical-align: middle;
 }
 
@@ -145,9 +179,13 @@ nav ul li form input[type=image] {
 	margin: 0 3%;
 }
 
+#scan-barcode:hover {
+	filter: opacity(0.85);
+}
+
 #scan-barcode a img {
 	border-radius: 10px;
-	border: 2px solid black;
+	border: 2px ridge white;
 	width: 125px;
 }
 
@@ -155,14 +193,31 @@ nav ul li form input[type=image] {
 	margin: 0 5%;
 }
 
+#searchbar-login-button {
+	border-radius: 5px;
+	border: none;
+	padding: 5px;
+}
+
+#searchbar-login-button:hover {
+	filter: opacity(0.85);
+}
+
+#searchbar form input[type=image]:hover {
+	filter: opacity(0.6);
+}
+
 #translate-english {
 	margin: 0 5%;
 	line-height: 0;
-	font-weight: bold;
+}
+
+#translate-english:hover {
+	filter: opacity(0.85);
 }
 
 #translate-english a {
-	color: black;
+	color: white;
 }
 
 #translate-english a img {
@@ -171,14 +226,46 @@ nav ul li form input[type=image] {
 	margin-top: 15px;
 }
 
+/* Section */
 section {
-	background-color: #5E9C5E;
-	background: #5E9C5E;
-	background: linear-gradient(0deg, #5E9C5E 0%, #8BBE1C 100%);
+	background-color: #b8c6db;
+	background: linear-gradient(0deg, #b8c6db 0%, #f5f7fa 100%);
 	padding: 15px;
 	margin: 16px 0;
 	font-size: 16px;
+	color: black;
+}
 
+#section-item-container {
+	display: flex;
+	flex-flow: row wrap;
+	line-height: 0;
+	justify-content: center;
+}
+
+#section-item-container a {
+	color: #b40000;
+	text-decoration: none;
+}
+
+.section-item {
+	width: max-content;
+	height: max-content;
+	margin: 20px;
+	font-size: 20px;
+}
+
+.section-item-top, .section-item-bottom {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: max-content;
+	text-align: center;
+}
+
+.section-item-top img {
+	border-radius: 5px;
+	width: 150px;
 }
 
 #parallax1 {
@@ -190,8 +277,10 @@ section {
 	background-size: cover;
 }
 
+/* Footer */
 footer {
-	background-color: #1b1b1b;
+	background-color: #191e22;
+	background: linear-gradient(0deg, #191e22 0%, #2c343b 100%);
 	min-height: 200px;
 	color: white;
 	font-size: 16px;

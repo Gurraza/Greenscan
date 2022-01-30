@@ -32,8 +32,8 @@
 
 	<!-- Content -->
 	<div id="content-container">
-		<!-- Nav-bar -->
-		<nav>
+		<!-- Navbar -->
+		<nav id="navbar">
 			<ul>
 				<li id="scan-barcode">
 					<a href="https://pageloot.com/barcode-scanner/#upload" target="_blank">
@@ -41,6 +41,7 @@
 					</a>
 				</li>
 				<li id="searchbar">
+					<button id="searchbar-login-button" onclick="login();">Logga in</button>
 					<form id="navForm">
 						<input type="text" name="search" id="search" placeholder="Sök..." autocomplete="off" />
 						<input type="image" src="assets/Search.png" />
@@ -49,7 +50,7 @@
 				<li id="translate-english">
 					<a href="#">
 						<img src="assets/UK-Flag.png" alt="Translate to English" title="Translate to English" />
-						<p>For English</p>
+						<p>English</p>
 					</a>
 				</li>
 			</ul>
@@ -57,11 +58,53 @@
 
 		<!-- First Section -->
 		<section>
+			<h2>Din Statistik</h2>
 			<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas saepe mollitia, perspiciatis quod officiis doloremque pariatur laborum, repellendus ipsa fuga sint alias numquam non. Odio aperiam vel impedit quis. Repellendus quam libero dolorem. Tenetur sapiente culpa distinctio qui ex odio voluptatum animi. Quam quis, quae veritatis quidem laborum consectetur corrupti? Similique eius odio quibusdam necessitatibus, recusandae fugiat ducimus repudiandae enim ut distinctio iure hic iste veritatis nihil reiciendis excepturi dolorum impedit dignissimos! Eveniet veritatis culpa fugiat autem aliquid eaque quisquam, velit voluptatum sequi harum ipsam nesciunt facere dolorum dolorem impedit quis unde asperiores qui consectetur eligendi earum fuga sint accusamus?</p>
-
+			<h2>Recept</h2>
+			<div id="section-item-container">
+				<div class="section-item">
+					<a href="#">
+						<div class="section-item-top">
+							<img src="assets/recipes/Potatis.jpg" alt="Potatis" title="Potatis" />
+						</div>
+						<div class="section-item-bottom">
+							<p>Potatis</p>
+						</div>
+					</a>
+				</div>
+				<div class="section-item">
+					<a href="#">
+						<div class="section-item-top">
+							<img src="assets/recipes/Kött.jpg" alt="Kött" title="Kött" />
+						</div>
+						<div class="section-item-bottom">
+							<p>Kött</p>
+						</div>
+					</a>
+				</div>
+				<div class="section-item">
+					<a href="#">
+						<div class="section-item-top">
+							<img src="assets/recipes/Grillad-kyckling.jpg" alt="Grillad kyckling" title="Grillad kyckling" />
+						</div>
+						<div class="section-item-bottom">
+							<p>Grillad Kyckling</p>
+						</div>
+					</a>
+				</div>
+				<div class="section-item">
+					<a href="#">
+						<div class="section-item-top">
+							<img src="assets/recipes/Torks-i-ugn.jpg" alt="Torsk i ugn" title="Torsk i ugn" />
+						</div>
+						<div class="section-item-bottom">
+							<p>Torsk i ugn</p>
+						</div>
+					</a>
+				</div>
+			</div>
+			<br /><br />
 			<div id="parallax1"></div>
-
-			<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum quas, reprehenderit cum optio quidem illo ullam perferendis fugit molestias tenetur temporibus rem at tempora adipisci porro laboriosam, enim sapiente est nostrum nulla esse. A, in! Libero consequatur nam dolor, fugiat iste sequi. Aut, asperiores praesentium, ipsum ab est consequatur possimus neque vitae quaerat quo quas ullam tempora? Architecto, voluptatem ipsum molestiae nostrum aliquid dolorum harum quaerat hic. Enim expedita incidunt, mollitia omnis officiis quia dolor libero deleniti voluptate qui itaque aliquam dolore, fuga necessitatibus, nam totam recusandae. Asperiores accusamus eius ipsam. Inventore provident ex optio necessitatibus ullam reprehenderit suscipit et?</p>
 		</section>
 
 		<!-- Footer -->
