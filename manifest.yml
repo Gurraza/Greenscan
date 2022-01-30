@@ -4,4 +4,4 @@ applications:
   host: simple-website-Gesus
   name: simple-website-Jesus
   memory: 64M
-  stack: cflinuxfs2
+  stack: cflinuxfs3
