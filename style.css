@@ -2,8 +2,6 @@
 	Gradients
 		http://www.brandgradients.com/green-gradient/
 		https://cssgradient.io/
-	Images
-	https://duckduckgo.com/?q=tulip+field+wallpaper&t=opera&iar=images&iax=images&ia=images&iai=https%3A%2F%2Fimages5.alphacoders.com%2F696%2F696134.jpg
 */
 
 
@@ -75,13 +73,14 @@ html {
 }
 
 body {
-	background-color: #8fa854;
+	/*https://duckduckgo.com/?q=nature+wallpaper&t=opera&iax=images&ia=images&iai=http%3A%2F%2Fwallup.net%2Fwp-content%2Fuploads%2F2016%2F04%2F06%2F343170-landscape-nature.jpg*/
+	background-image: url("assets/Background.jpg");
+	background-color: #7154a8;
 	overflow-x: hidden;
 	padding: 0;
 	margin: 0;
 	height: 100%;
 	overflow-x: hidden;
-	background-image: url("assets/Background.jpg");
 	min-height: 500px;
 	background-attachment: fixed;
 	background-position:top;
@@ -269,6 +268,7 @@ section {
 }
 
 #parallax1 {
+	/*https://duckduckgo.com/?q=tulip+field+wallpaper&t=opera&iar=images&iax=images&ia=images&iai=https%3A%2F%2Fimages5.alphacoders.com%2F696%2F696134.jpg*/
 	background-image: url("assets/Tulip-field.jpg");
 	min-height: 500px;
 	background-attachment: fixed;
