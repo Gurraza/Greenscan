@@ -130,6 +130,11 @@ h1 {
 	letter-spacing: 5px;
 }
 
+/*Hide elements*/
+.hidden{
+	display: none;
+}
+
 /* Content Container */
 #content-container {
 	max-width: 1000px;

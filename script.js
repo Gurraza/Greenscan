@@ -30,6 +30,39 @@ function scrollFunction() {
 	}
 }
 
-function login() {
-	alert("Du är inloggad!");
+/*===== Log in system =====*/
+function showError(e) {
+	console.error(e);
+	alert(e);
 }
+
+function success(decodeIDToken) {
+	document.getElementById('Name').textContent = 'Hej, ' + decodeIDToken.name;
+	var node = document.getElementById('afterLogin');
+	node.textContent ='Dina mål denna månad är: 0 kg CO';
+	var x = document.createElement("SUB");
+  	var t = document.createTextNode("2");
+	var utslapp = document.createTextNode(" utsläpp");
+  	x.appendChild(t);
+  	node.appendChild(x);
+	node.appendChild(utslapp);
+
+}
+(async function(){
+	const appID = new AppID();
+	await appID.init({
+		clientId: 'd646f530-1146-48ec-950b-d2498bc93842',
+		discoveryEndpoint: 'https://eu-de.appid.cloud.ibm.com/oauth/v4/fe3425ce-fa7a-40df-857d-d8f5acc06348/.well-known/openid-configuration'
+	});
+	document.getElementById('searchbar-login-button').addEventListener('click', async () => {
+		document.getElementById('searchbar-login-button').setAttribute('class', 'hidden');
+
+		try {
+			tokens = await appID.signin();
+			let userInfo = await appID.getUserInfo(tokens.accessToken);
+			success(tokens.idTokenPayload);
+		} catch (e) {
+			showError(e);
+		}
+	});
+})()
