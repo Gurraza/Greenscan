@@ -1,7 +1,7 @@
 ---
 applications:
 - buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
-host: simple-website-Gesus
-name: simple-website-Jesus
+host: Greenscan
+name: Greenscan
 memory: 64M
 stack: cflinuxfs3
