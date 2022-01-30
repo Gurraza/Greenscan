@@ -6,7 +6,7 @@
 */
 
 /*===== Adding submit event listener to nav-form =====*/
-document.getElementById("navForm").addEventListener("submit", function(event) {
+document.getElementById("navForm").addEventListener("submit", function (event) {
 	event.preventDefault(); // Prevents website to reload on submit
 	query = document.getElementById("search").value.trim(); // Fetch search query
 	if (query !== "") { // If query isn't only whitespace
@@ -16,9 +16,9 @@ document.getElementById("navForm").addEventListener("submit", function(event) {
 
 /*===== To Top Arrow =====*/
 toTopArrow = document.getElementById("to-top-arrow"); // Fetch "button"
-window.onscroll = function() { scrollFunction() }; // Call scrollFunction on scroll event
+window.onscroll = function () { scrollFunction() }; // Call scrollFunction on scroll event
 
-function scrollFunction() {
+function scrollFunction () {
 	if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) { // If user has scrolled past 30px
 		toTopArrow.style.visibility = "visible"; // Make button visible
 		toTopArrow.style.opacity = 1; // Visible transition
@@ -30,40 +30,37 @@ function scrollFunction() {
 	}
 }
 
-/*===== Log in system =====*/
-function showError(e) {
-	console.error(e);
-	alert(e);
-	document.getElementById('searchbar-login-button').classList.remove("hidden");
+/*===== Login system =====*/
+function showError (error) {
+    console.error(error);
+    alert(error);
+    document.getElementById("searchbar-login-button").classList.remove("hidden");
 }
 
-function success(decodeIDToken) {
-	document.getElementById('Name').textContent = 'Hej, ' + decodeIDToken.name;
-	var node = document.getElementById('afterLogin');
-	node.textContent ='Dina mål denna månad är: 0 kg CO';
-	var x = document.createElement("SUB");
-  	var t = document.createTextNode("2");
-	var utslapp = document.createTextNode(" utsläpp");
-  	x.appendChild(t);
-  	node.appendChild(x);
-	node.appendChild(utslapp);
-
+function success (decodeIDToken) {
+    document.getElementById("Name").textContent = `Hej, ${decodeIDToken.name}`;
+    const node = document.getElementById("after-login");
+    node.textContent = "Ditt mål denna månad är: 0 kg CO";
+    const x = document.createElement("SUB");
+    const t = document.createTextNode("2");
+    const emissions = document.createTextNode(" utsläpp");
+    x.appendChild(t);
+    node.appendChild(x);
+    node.appendChild(emissions);
 }
-(async function(){
-	const appID = new AppID();
-	await appID.init({
-		clientId: 'd646f530-1146-48ec-950b-d2498bc93842',
-		discoveryEndpoint: 'https://eu-de.appid.cloud.ibm.com/oauth/v4/fe3425ce-fa7a-40df-857d-d8f5acc06348/.well-known/openid-configuration'
-	});
-	document.getElementById('searchbar-login-button').addEventListener('click', async () => {
-		document.getElementById('searchbar-login-button').setAttribute('class', 'hidden');
-
-		try {
-			tokens = await appID.signin();
-			let userInfo = await appID.getUserInfo(tokens.accessToken);
-			success(tokens.idTokenPayload);
-		} catch (e) {
-			showError(e);
-		}
-	});
+(async function () {
+    const appID = new AppID();
+    await appID.init({
+        clientId: "d646f530-1146-48ec-950b-d2498bc93842",
+        discoveryEndpoint: "https://eu-de.appid.cloud.ibm.com/oauth/v4/fe3425ce-fa7a-40df-857d-d8f5acc06348/.well-known/openid-configuration"
+    })
+    document.getElementById("searchbar-login-button").addEventListener("click", async () => {
+        document.getElementById("searchbar-login-button").setAttribute("class", "hidden");
+        try {
+            const tokens = await appID.signin();
+            success(tokens.idTokenPayload);
+        } catch (error) {
+            showError(error);
+        }
+    })
 })()

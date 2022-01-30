@@ -58,7 +58,7 @@
 		<!-- First Section -->
 		<section>
 			<h2 id="Name">Din Statistik</h2>
-			<p id="afterLogin">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas saepe mollitia, perspiciatis quod officiis doloremque pariatur laborum, repellendus ipsa fuga sint alias numquam non. Odio aperiam vel impedit quis. Repellendus quam libero dolorem. Tenetur sapiente culpa distinctio qui ex odio voluptatum animi. Quam quis, quae veritatis quidem laborum consectetur corrupti? Similique eius odio quibusdam necessitatibus, recusandae fugiat ducimus repudiandae enim ut distinctio iure hic iste veritatis nihil reiciendis excepturi dolorum impedit dignissimos! Eveniet veritatis culpa fugiat autem aliquid eaque quisquam, velit voluptatum sequi harum ipsam nesciunt facere dolorum dolorem impedit quis unde asperiores qui consectetur eligendi earum fuga sint accusamus?</p>
+			<p id="after-login">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas saepe mollitia, perspiciatis quod officiis doloremque pariatur laborum, repellendus ipsa fuga sint alias numquam non. Odio aperiam vel impedit quis. Repellendus quam libero dolorem. Tenetur sapiente culpa distinctio qui ex odio voluptatum animi. Quam quis, quae veritatis quidem laborum consectetur corrupti? Similique eius odio quibusdam necessitatibus, recusandae fugiat ducimus repudiandae enim ut distinctio iure hic iste veritatis nihil reiciendis excepturi dolorum impedit dignissimos! Eveniet veritatis culpa fugiat autem aliquid eaque quisquam, velit voluptatum sequi harum ipsam nesciunt facere dolorum dolorem impedit quis unde asperiores qui consectetur eligendi earum fuga sint accusamus?</p>
 			<h2>Recept</h2>
 			<!--https://css-tricks.com/snippets/css/a-guide-to-flexbox/#aa-background-->
 			<!--https://www.ica.se/sok/#:search=kött-->
@@ -155,12 +155,12 @@
 			integrationID: "cff0441d-173c-40f7-a7b1-2d9807b10233", // The ID of this integration.
 			region: "eu-de", // The region your integration is hosted in.
 			serviceInstanceID: "58187553-a969-41b2-8f84-b340db50e0b6", // The ID of your service instance.
-			onLoad: function(instance) { instance.render(); }
+			onLoad: function (instance) { instance.render(); }
 		};
 		setTimeout(function() {
-			const t = document.createElement('script');
-			t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js"
-			document.head.appendChild(t);
+			const scriptElement = document.createElement('script');
+			scriptElement.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js"
+			document.head.appendChild(scriptElement);
 		});
 	</script>
 </body>
