@@ -1,7 +1,8 @@
 /* Todo
 	Maybe
-		Something after entering search query
-		Changing BorderTop(Left/Right)Radius = 0 when navbar is sticked e.g. after ~60px scroll
+		Something after entering search query.
+		Changing BorderTop(Left/Right)Radius = 0 when navbar is sticked e.g. after ~60px scroll.
+		Filtering recipes.
 */
 
 /*===== Adding submit event listener to nav-form =====*/

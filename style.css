@@ -235,6 +235,11 @@ section {
 	color: black;
 }
 
+section h2 {
+	font-size: 26px;
+	font-family: 'Open Sans', sans-serif;
+}
+
 #section-item-container {
 	display: flex;
 	flex-flow: row wrap;
@@ -260,11 +265,19 @@ section {
 	width: 100%;
 	height: max-content;
 	text-align: center;
+	overflow: hidden;
 }
 
 .section-item-top img {
 	border-radius: 5px;
 	width: 150px;
+	transform: scale(1);
+	transition: transform ease-in-out 0.2s;
+}
+
+.section-item-top img:hover {
+	transform: scale(1.1);
+	transition: transform ease-in-out 0.2s;
 }
 
 #parallax1 {
@@ -275,6 +288,7 @@ section {
 	background-position:top;
 	background-repeat: no-repeat;
 	background-size: cover;
+	border-radius: 15px;
 }
 
 /* Footer */
