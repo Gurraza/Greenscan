@@ -103,15 +103,15 @@ a:hover, a:visited {
 	display: block;
 	text-decoration: none;
 	position: fixed;
-	bottom: 30px;
-	right: 40px;
+	bottom: 100px;
+	right: 31px;
 	z-index: 99;
 	border: none;
 	outline: none;
 	color: white;
 	padding: 10px 22px;
-	border-radius: 10px;
-	font-size: 30px;
+	border-radius: 30px;
+	font-size: 29px;
 	background-color: #be1bff;
 	background: linear-gradient(180deg, #a05abc 0%, #645abc 66%, #2C83AA 100%);
 }
