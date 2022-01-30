@@ -38,15 +38,9 @@ function showError (error) {
 }
 
 function success (decodeIDToken) {
-    document.getElementById("Name").textContent = `Hej, ${decodeIDToken.name}`;
-    const node = document.getElementById("after-login");
-    node.textContent = "Ditt mål denna månad är: 0 kg CO";
-    const x = document.createElement("SUB");
-    const t = document.createTextNode("2");
-    const emissions = document.createTextNode(" utsläpp");
-    x.appendChild(t);
-    node.appendChild(x);
-    node.appendChild(emissions);
+    document.getElementById("section-first-title").textContent = `Hej, ${decodeIDToken.name}`;
+    const sectionFirstText = document.getElementById("after-login");
+    sectionFirstText.innerHTML = "<h3>Prestation</h3>Ditt mål är: <strong>55 kg CO<sub>2</sub></strong><br />Ditt utsläpp: <strong>21.4 kg CO<sub>2</sub></strong><br />";
 }
 (async function () {
     const appID = new AppID();
@@ -64,3 +58,9 @@ function success (decodeIDToken) {
         }
     })
 })()
+
+function test() {
+	document.getElementById("section-first-title").textContent = `Hej, Dan The Man`;
+	const sectionFirstText = document.getElementById("after-login");
+	sectionFirstText.innerHTML = "<h3>Prestation för denna månad</h3><p>Ditt mål: <strong>55 kg CO<sub>2</sub></strong></p><p>Ditt utsläpp: <strong>21.4 kg CO<sub>2</sub></strong></p><p>Din plats på topplistan: <strong>247</strong></p>";
+}

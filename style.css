@@ -56,13 +56,13 @@
 
 ::-webkit-scrollbar-thumb {
 	background-color: #b668d4;
-	background: linear-gradient(0deg, #b668d4 0%, #8479ec 66%, #2C83AA 100%);
+	background: linear-gradient(0deg, #b668d4 0%, #8479ec 50%, #2C83AA 100%);
 	border-radius: 50px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
 	background-color: #a35ebe;
-	background: linear-gradient(0deg, #a35ebe 0%, #796fd8 66%, #2a779b 100%);
+	background: linear-gradient(0deg, #a35ebe 0%, #796fd8 50%, #2a779b 100%);
 }
 
 /*===== Elements =====*/
@@ -110,10 +110,10 @@ a:hover, a:visited {
 	outline: none;
 	color: white;
 	padding: 10px 22px;
-	border-radius: 30px;
+	border-radius: 100%;
 	font-size: 29px;
 	background-color: #be1bff;
-	background: linear-gradient(180deg, #a05abc 0%, #645abc 66%, #2C83AA 100%);
+	background: linear-gradient(180deg, #b668d4 0%, #8479ec 50%, #2C83AA 100%);
 }
 
 #to-top-arrow:hover {
@@ -121,6 +121,10 @@ a:hover, a:visited {
 }
 
 /* Header */
+header {
+	margin-top: 100px;
+}
+
 h1 {
 	text-align: center;
 	font-size: 50px;
@@ -144,7 +148,7 @@ h1 {
 /* Nav-bar */
 nav {
 	background-color: #be1bff;
-	background: linear-gradient(180deg, #a05abc 0%, #645abc 66%, #2C83AA 100%);
+	background: linear-gradient(180deg, #ef3aff 0%, #9955e6 50%, #6d38ff 100%);
 	position: sticky;
 	width: 100%;
 	height: max-content;
@@ -162,6 +166,7 @@ nav ul {
 	justify-content: center;
 	display: flex;
 	flex-flow: row wrap;
+	gap: 10%;
 }
 
 nav ul li {
@@ -180,7 +185,7 @@ nav ul li form input[type=image] {
 }
 
 #scan-barcode {
-	margin: 0 3%;
+	align-self: center;
 }
 
 #scan-barcode:hover {
@@ -194,13 +199,14 @@ nav ul li form input[type=image] {
 }
 
 #searchbar {
-	margin: 0 5%;
+	align-self: center;
 }
 
 #searchbar-login-button {
 	border-radius: 5px;
 	border: none;
 	padding: 5px;
+	cursor: pointer;
 }
 
 #searchbar-login-button:hover {
@@ -212,7 +218,7 @@ nav ul li form input[type=image] {
 }
 
 #translate-english {
-	margin: 0 5%;
+	align-self: center;
 	line-height: 0;
 }
 
@@ -227,7 +233,6 @@ nav ul li form input[type=image] {
 #translate-english a img {
 	width: 75px;
 	border-radius: 5px;
-	margin-top: 15px;
 }
 
 /* Section */
@@ -290,7 +295,7 @@ section h2 {
 	background-image: url("assets/Tulip-field.jpg");
 	min-height: 500px;
 	background-attachment: fixed;
-	background-position:top;
+	background-position: top;
 	background-repeat: no-repeat;
 	background-size: cover;
 	border-radius: 15px;
@@ -307,6 +312,8 @@ footer {
 	padding: 48px;
 	line-height: 1.5;
 	text-align: center;
+	margin-bottom: 50px;
+	overflow: hidden;
 }
 
 footer a, footer a:hover, footer:visited {
@@ -394,4 +401,10 @@ footer a:hover {
 #footer-legal li {
 	display: inline;
 	margin-right: 10px;
+}
+
+#footer-hallert {
+	border-radius: 15px;
+	width: 100%;
+	max-width: 600px;
 }
