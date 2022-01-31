@@ -95,10 +95,11 @@ class Product {
 let allProducts = [];
 let filteredAllProducts = [];
 // Skriv in en ny rad för varje produkt
+
 function createAllProducts() {
 	const pathPrefix = "./assets/recipes/";
 
-	addProduct("Valio Smör", 2, ["smör", "pasta"], `${pathPrefix}ValioSmör.jpg`);
+	addProduct("Valio Smör", 2, ["smör"], `${pathPrefix}ValioSmör.jpg`);
 	addProduct("Bregott", 522, ["smör"], `${pathPrefix}BregottSmör.jpg`);
 	addProduct("Steksmör", 53, ["smör"], `${pathPrefix}Steksmör.jpg`);
 	addProduct("Laktosfritt Bregott", 15, ["smör"], `${pathPrefix}LaktosfrittSmör.jpg`);
@@ -107,7 +108,7 @@ function createAllProducts() {
 	addProduct("Pasta Penne", 1, ["pasta"], `${pathPrefix}PastaPenne.jpg`);
 	addProduct("Pasta Spagetthi", 52, ["pasta"], `${pathPrefix}PastaSpagetthi.jpg`);
 	addProduct("Pasta Gnocchi", 445, ["pasta"], `${pathPrefix}PastaGnocchi.jpg`);
-	addProduct("pasta Farfalle", 521, ["pasta"], `${pathPrefix}PastaFarfalle.jpg`);
+	addProduct("Pasta Farfalle", 521, ["pasta"], `${pathPrefix}PastaFarfalle.jpg`);
 
 	addProduct("Bravo Tropisk", 25, ["juice", "frukost"], `${pathPrefix}BravoTropiskJuice.jpg`);
 	addProduct("Bravo Äppeljuice", 985, ["juice", "frukost"], `${pathPrefix}BravoÄppelJuice.jpg`);
@@ -148,8 +149,7 @@ function writeProductsToHTML () {
 	}
 }
 
-function SearchForProducts()
-{
+function SearchForProducts() {
 	let inp = "";
 	inp = search.value;
 	container.innerHTML = "";
@@ -164,9 +164,9 @@ function SearchForProducts()
 		}
 	}
 }
-function SortWithFilter(arr)
-{
-	bblSort(arr);
+
+function SortWithFilter(array) {
+	bblSort(array);
 }
 // Bubble sort Implementation using Javascript
 
@@ -204,5 +204,3 @@ function bblSort(arg){
 		}
 	}
 }
-
-
