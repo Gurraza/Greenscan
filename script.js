@@ -84,10 +84,10 @@ function loginDebugging() {
 
 //Mall för varje produkt / artikel
 class Product {
-	constructor (productName, carbonFootprint, productType, imageFile) {
+	constructor (productName, carbonFootprint, productTaggs = [], imageFile) {
 		this.productName = productName;
 		this.carbonFootprint = carbonFootprint;
-		this.productType = productType;
+		this.productTaggs = productTaggs;
 		this.imageFile = imageFile;
 	}
 }
@@ -98,22 +98,24 @@ let filteredAllProducts = [];
 function createAllProducts() {
 	const pathPrefix = "./assets/recipes/";
 
-	addProduct("Valio Smör", 2, "smör", `${pathPrefix}ValioSmör.jpg`);
-	addProduct("Bregott", 522, "smör", `${pathPrefix}BregottSmör.jpg`);
-	addProduct("Steksmör", 53, "smör", `${pathPrefix}Steksmör.jpg`);
-	addProduct("Laktosfritt Bregott", 15, "smör", `${pathPrefix}LaktosfrittSmör.jpg`);
-	addProduct("Becel", 995, "smör", `${pathPrefix}BecelSmör.jpg`);
+	addProduct("Valio Smör", 2, ["smör", "pasta"], `${pathPrefix}ValioSmör.jpg`);
+	addProduct("Bregott", 522, ["smör"], `${pathPrefix}BregottSmör.jpg`);
+	addProduct("Steksmör", 53, ["smör"], `${pathPrefix}Steksmör.jpg`);
+	addProduct("Laktosfritt Bregott", 15, ["smör"], `${pathPrefix}LaktosfrittSmör.jpg`);
+	addProduct("Becel", 995, ["smör"], `${pathPrefix}BecelSmör.jpg`);
 
-	addProduct("Pasta Penne", 95, "pasta", `${pathPrefix}PastaPenne.jpg`);
-	addProduct("Bregott", 52, "smör", `${pathPrefix}BregottSmör.jpg`);
-	addProduct("Steksmör", 445, "smör", `${pathPrefix}Steksmör.jpg`);
-	addProduct("Laktosfritt Bregott", 521, "smör", `${pathPrefix}LaktosfrittSmör.jpg`);
-	addProduct("Becel", 235, "smör", `${pathPrefix}BecelSmör.jpg`);
+	addProduct("Pasta Penne", 1, ["pasta"], `${pathPrefix}PastaPenne.jpg`);
+	addProduct("Pasta Spagetthi", 52, ["pasta"], `${pathPrefix}PastaSpagetthi.jpg`);
+	addProduct("Steksmör", 445, ["pasta"], `${pathPrefix}Steksmör.jpg`);
+	addProduct("Laktosfritt Bregott", 521, ["pasta"], `${pathPrefix}LaktosfrittSmör.jpg`);
+	addProduct("Becel", 235, ["pasta"], `${pathPrefix}BecelSmör.jpg`);
 
 	addProduct("Valio Smör", 25, "smör", `${pathPrefix}ValioSmör.jpg`);
 	addProduct("Bregott", 985, "smör", `${pathPrefix}BregottSmör.jpg`);
 	addProduct("Steksmör", 2225, "smör", `${pathPrefix}Steksmör.jpg`);
-	addProduct("Laktosfritt Bregott", 1, "smör", `${pathPrefix}LaktosfrittSmör.jpg`);
+	addProduct("Laktosfritt Bregott", 3, "smör", `${pathPrefix}LaktosfrittSmör.jpg`);
+
+	SortCarbonFootprint(allProducts);
 }
 
 // Förskortad function
@@ -137,7 +139,7 @@ function writeProduct (productIndex) {
 	return div;
 }
 
-//Skriver in produkter på html sidan utifrån. Ska fixa filter och sortering
+//Skriver in produkter på html sidan utifrån
 let container;
 function writeProductsToHTML () {
 	container = document.getElementById("section-item-container");
@@ -148,13 +150,46 @@ function writeProductsToHTML () {
 
 function SearchForProducts()
 {
-	let inp = search.value;
+	let inp = "";
+	inp = search.value;
 	container.innerHTML = "";
 	for(let i = 0; i < allProducts.length; i++)
 	{
-		if(inp == allProducts[i].productType || inp == "")
+		for(let j = 0; j < allProducts[i].productTaggs.length; j++)
 		{
-			container.appendChild(writeProduct(i));
+			if (inp == allProducts[i].productTaggs[j] || inp == "" || inp == allProducts[i].productName)
+			{
+				container.appendChild(writeProduct(i));
+			}
 		}
 	}
 }
+function SortCarbonFootprint(arr)
+{
+	bblSort(arr);
+}
+// Bubble sort Implementation using Javascript
+
+
+// Creating the bblSort function
+function bblSort(arr){
+
+	for(var i = 0; i < arr.length; i++){
+
+		// Last i elements are already in place
+		for(var j = 0; j < ( arr.length - i -1 ); j++){
+
+			// Checking if the item at present iteration
+			// is greater than the next iteration
+			if(arr[j].carbonFootprint > arr[j+1].carbonFootprint){
+
+			// If the condition is true then swap them
+			var temp = arr[j]
+			arr[j] = arr[j + 1]
+			arr[j+1] = temp
+			}
+		}
+	}
+}
+
+
