@@ -46,6 +46,7 @@
 }
 
 /*===== Scrollbar =====*/
+
 ::-webkit-scrollbar {
 	width: 10px;
 }
@@ -293,10 +294,11 @@ section h2 {
 
 #parallax1 {
 	/*https://duckduckgo.com/?q=tulip+field+wallpaper&t=opera&iar=images&iax=images&ia=images&iai=https%3A%2F%2Fimages5.alphacoders.com%2F696%2F696134.jpg*/
-	background-image: url("assets/Tulip-field.jpg");
-	min-height: 500px;
+	background-image: url("assets/Potato-field.jpg");
+	min-height: 300px;
+	width: 100%;
 	background-attachment: fixed;
-	background-position: top;
+	background-position: left;
 	background-repeat: no-repeat;
 	background-size: cover;
 	border-radius: 15px;

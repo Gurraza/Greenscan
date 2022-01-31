@@ -34,13 +34,17 @@ function scrollFunction () {
 function showError (error) {
     console.error(error);
     alert(error);
-    document.getElementById("searchbar-login-button").classList.remove("hidden");
 }
 
 function success (decodeIDToken) {
     document.getElementById("section-first-title").textContent = `Hej, ${decodeIDToken.name}`;
     const sectionFirstText = document.getElementById("section-first-text");
-    sectionFirstText.innerHTML = "<h3>Prestation</h3>Ditt mål är: <strong>55 kg CO<sub>2</sub></strong><br />Ditt utsläpp: <strong>21.4 kg CO<sub>2</sub></strong><br />";
+    sectionFirstText.innerHTML = "<h3>Prestation för denna månad</h3><p>Ditt mål: <strong>55 kg CO<sub>2</sub></strong></p><p>Ditt utsläpp: <strong>21.4 kg CO<sub>2</sub></strong></p><p>Din plats på topplistan: <strong>247</strong></p>";
+	const sectionOtherText = document.getElementsByClassName("section-other-text");
+	for(let i = 0; i < sectionOtherText.length; i++) {
+		sectionOtherText[i].setAttribute("class", `${sectionOtherText[i].className} hidden`);
+	}
+	document.getElementById("searchbar-login-button").setAttribute("class", "hidden");
 }
 (async function () {
     const appID = new AppID();
@@ -49,9 +53,8 @@ function success (decodeIDToken) {
         discoveryEndpoint: "https://eu-de.appid.cloud.ibm.com/oauth/v4/fe3425ce-fa7a-40df-857d-d8f5acc06348/.well-known/openid-configuration"
     })
     document.getElementById("searchbar-login-button").addEventListener("click", async () => {
-        document.getElementById("searchbar-login-button").setAttribute("class", "hidden");
-        try {
-            const tokens = await appID.signin();
+		try {
+			const tokens = await appID.signin();
             success(tokens.idTokenPayload);
         } catch (error) {
             showError(error);
@@ -66,7 +69,6 @@ function loginDebugging() {
 	const sectionOtherText = document.getElementsByClassName("section-other-text");
 	for(let i = 0; i < sectionOtherText.length; i++) {
 		sectionOtherText[i].setAttribute("class", `${sectionOtherText[i].className} hidden`);
-		console.log(sectionOtherText[i])
 	}
 	document.getElementById("searchbar-login-button").setAttribute("class", "hidden");
 }
