@@ -1,5 +1,5 @@
 <!-- Todo
-
+	Get sponsorship from IBM and/or ICA
 -->
 
 <!-- Notes
@@ -59,13 +59,34 @@
 		<!-- First Section -->
 		<section>
 			<h2>Recept</h2>
-			<label>Sortera</label>
-			<select>
-				<option id="SorteraIngen">Ingen</option>
-				<option id="SorteraPrisLägst">Pris Lägst</option>
-				<option id ="SorteraPrisHögst">Pris Högst</option>
-				<option id ="">Koldioxidutsläpp Lägst</option>
-			</select>
+			<div id="filter-container">
+				<label>Sortera:</label>
+				<select id="SorteringsSelect">
+					<option id="NameAZ">Namn (A-Ö)</option>
+					<option id="NameZA">Namn (Ö-A)</option>
+					<option id ="CarbonLowHigh">Koldioxidutsläpp (Lägst Överst)</option>
+					<option id="PriceLowHigh">Pris (Lägst Överst)</option>
+					<option id ="PriceHighLow">Pris (Högst Överst)</option>
+				</select>
+				<br />
+				<label for="section-filter-ecological">Ekologiskt:</label>
+				<input type="checkbox" name="section-filter-ecological" id="section-filter-ecological" />
+				<br />
+				<label for="section-filter-localproduced">Närproducerat:</label>
+				<input type="checkbox" name="section-filter-closeMade" id="section-filter-closeMade" />
+				<br />
+
+				<div id="section-filter-priceslidecontainer">
+					<div id="section-priceslider-minmax">
+						<p>0</p>
+						<label for="section-filter-priceslider" id="section-filter-priceslider-label">Max-pris:</label>
+						<p>150</p>
+					</div>
+					<br />
+					<input type="range" min="1" max="150" value="75" id="section-filter-priceslider" />
+					<p id="section-filter-price-selected">75 kr</p>
+				</div>
+			</div>
 
 			<!-- Filtrering
 				Ekologiskt (Checkbox)

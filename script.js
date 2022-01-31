@@ -1,3 +1,24 @@
+let slider = document.getElementById("section-filter-priceslider");
+let output = document.getElementById("section-filter-price-selected");
+let allProducts = [];
+let filteredAllProducts = [];
+class Product {
+	constructor (productName, carbonFootprint, productTaggs = [], imageFile, price, isNärodlad, isEkological) {
+		this.productName = productName;
+		this.carbonFootprint = carbonFootprint;
+		this.productTaggs = productTaggs;
+		this.imageFile = imageFile;
+		this.price = price;
+		this.isNärodlad = isNärodlad;
+		this.isEkological = isEkological;
+	}
+}
+//output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = `${this.value} kr`;
+}
+
 /* Todo
 	Maybe
 		Something after entering search query.
@@ -6,12 +27,13 @@
 */
 
 /*===== Adding submit event listener to nav-form =====*/
-document.getElementById("navForm").addEventListener("submit", function (event) {
+document.getElementById("navForm").addEventListener("submit", (event) => {
 	event.preventDefault(); // Prevents website to reload on submit
 	query = document.getElementById("search").value.trim(); // Fetch search query
 	/*if (query !== "") { // If query isn't only whitespace
-		//alert(`Du har sökt efter: ${document.getElementById("search").value}`); // Prompting the search query
 	}*/
+	//alert(`Du har sökt efter: ${document.getElementById("search").value}`); // Prompting the search query
+	console.log("11");
 	SearchForProducts();
 })
 
@@ -83,45 +105,35 @@ function loginDebugging() {
 /*Allt med produkter på hemisdan*/
 
 //Mall för varje produkt / artikel
-class Product {
-	constructor (productName, carbonFootprint, productTaggs = [], imageFile) {
-		this.productName = productName;
-		this.carbonFootprint = carbonFootprint;
-		this.productTaggs = productTaggs;
-		this.imageFile = imageFile;
-	}
-}
+
 // Listor för alla produkter
-let allProducts = [];
-let filteredAllProducts = [];
+
 // Skriv in en ny rad för varje produkt
 
 function createAllProducts() {
 	const pathPrefix = "./assets/recipes/";
 
-	addProduct("Valio Smör", 2, ["smör"], `${pathPrefix}ValioSmör.jpg`);
-	addProduct("Bregott", 522, ["smör"], `${pathPrefix}BregottSmör.jpg`);
-	addProduct("Steksmör", 53, ["smör"], `${pathPrefix}Steksmör.jpg`);
-	addProduct("Laktosfritt Bregott", 15, ["smör"], `${pathPrefix}LaktosfrittSmör.jpg`);
-	addProduct("Becel", 995, ["smör"], `${pathPrefix}BecelSmör.jpg`);
+	addProduct("Valio Smör", 2, ["smör"], `${pathPrefix}ValioSmör.jpg`, 20, true, true);
+	addProduct("Bregott", 522, ["smör"], `${pathPrefix}BregottSmör.jpg`, 25, true, true);
+	addProduct("Steksmör", 53, ["smör"], `${pathPrefix}Steksmör.jpg`, 10, false, false);
+	addProduct("Laktosfritt Bregott", 15, ["smör"], `${pathPrefix}LaktosfrittSmör.jpg`, 30, true, false);
+	addProduct("Becel", 995, ["smör"], `${pathPrefix}BecelSmör.jpg`, 26, false, true);
 
-	addProduct("Pasta Penne", 1, ["pasta"], `${pathPrefix}PastaPenne.jpg`);
-	addProduct("Pasta Spagetthi", 52, ["pasta"], `${pathPrefix}PastaSpagetthi.jpg`);
-	addProduct("Pasta Gnocchi", 445, ["pasta"], `${pathPrefix}PastaGnocchi.jpg`);
-	addProduct("Pasta Farfalle", 521, ["pasta"], `${pathPrefix}PastaFarfalle.jpg`);
+	addProduct("Pasta Penne", 1, ["pasta"], `${pathPrefix}PastaPenne.jpg`, 10, false, true);
+	addProduct("Pasta Spagetthi", 52, ["pasta"], `${pathPrefix}PastaSpagetthi.jpg`, 13, false, false);
+	addProduct("Pasta Gnocchi", 445, ["pasta"], `${pathPrefix}PastaGnocchi.jpg`, 19, true, true);
+	addProduct("Pasta Farfalle", 521, ["pasta"], `${pathPrefix}PastaFarfalle.jpg`, 18, true, true);
 
-	addProduct("Bravo Tropisk", 25, ["juice", "frukost"], `${pathPrefix}BravoTropiskJuice.jpg`);
-	addProduct("Bravo Äppeljuice", 985, ["juice", "frukost"], `${pathPrefix}BravoÄppelJuice.jpg`);
-	addProduct("Godmorgon Apelsinjuice", 2225, ["juice", "frukost"], `${pathPrefix}GodMorgonApelsinJuice.jpg`);
-	addProduct("Godmorgon Äppeljuice", 3, ["juice", "frukost"], `${pathPrefix}GodMorgonÄpple.jpg`);
-	addProduct("Brämhults Apelsinjuice", 235, ["pasta"], `${pathPrefix}BrämhultsApelsinJuice.jpg`);
-
-	SortWithFilter("product");
+	addProduct("Bravo Tropisk", 25, ["juice", "frukost"], `${pathPrefix}BravoTropiskJuice.jpg`, 30, true, true);
+	addProduct("Bravo Äppeljuice", 985, ["juice", "frukost"], `${pathPrefix}BravoÄppelJuice.jpg`, 30, true, false);
+	addProduct("Godmorgon Apelsinjuice", 2225, ["juice", "frukost"], `${pathPrefix}GodMorgonApelsinJuice.jpg`, 25, true, true);
+	addProduct("Godmorgon Äppeljuice", 3, ["juice", "frukost"], `${pathPrefix}GodMorgonÄpple.jpg`, 25, true, true);
+	addProduct("Brämhults Apelsinjuice", 235, ["pasta"], `${pathPrefix}BrämhultsApelsinJuice.jpg`, 35, false, true);
 }
 
 // Förskortad function
-function addProduct(namn, utsläpp, productType, imageFile) {
-	allProducts.push(new Product(namn, utsläpp, productType, imageFile));
+function addProduct(namn, utsläpp, productType, imageFile, isCloseMade, isEko) {
+	allProducts.push(new Product(namn, utsläpp, productType, imageFile, isCloseMade, isEko));
 }
 
 // Skapar varje enskild produkt i html kod
@@ -141,10 +153,11 @@ function writeProduct (productIndex) {
 }
 
 //Skriver in produkter på html sidan utifrån
-let container;
 function writeProductsToHTML () {
+	var container = "";
 	container = document.getElementById("section-item-container");
 	for(let i = 0; i < allProducts.length; i++) {
+		console.log("123");
 		container.appendChild(writeProduct(i));
 	}
 }
@@ -153,19 +166,49 @@ function SearchForProducts() {
 	let inp = "";
 	inp = search.value;
 	container.innerHTML = "";
+	console.log("1");
 	for(let i = 0; i < allProducts.length; i++)
 	{
+		console.log("2");
 		for(let j = 0; j < allProducts[i].productTaggs.length; j++)
 		{
+			console.log("3");
 			if (inp == allProducts[i].productTaggs[j] || inp == "" || inp == allProducts[i].productName)
 			{
-				container.appendChild(writeProduct(i));
+				console.log("4");
+				if (isEko)
+				{
+					console.log("5");
+					if (allProducts[i].isEkological)
+					{
+						console.log("6");
+						container.appendChild(writeProduct(i));
+					}
+				}
+				else if (!isEko)
+				{
+					console.log("7");
+					container.appendChild(writeProduct(i));
+				}
 			}
 		}
 	}
 }
 
+function SorteringsSelect()
+{
+	SortWithFilter("productName");
+}
+const selectElement = document.getElementById('SorteringsSelect');
+
+selectElement.addEventListener('change', (event) => {
+	SorteringsSelect();
+});
+
 function SortWithFilter(array) {
+	var isEko = document.getElementById("section-filter-closeMade");
+	console.log(isEko);
+	var isCloseMade = document.ggetElementById("section-filter-ecelogical");
 	bblSort(array);
 }
 // Bubble sort Implementation using Javascript
@@ -174,6 +217,7 @@ function SortWithFilter(array) {
 // Creating the bblSort function
 function bblSort(arg){
 	let argument = "";
+	arg = "productName"
 	if (arg == "carbon")
 	{
 		argument = "carbon";
@@ -195,6 +239,7 @@ function bblSort(arg){
 			// Checking if the item at present iteration
 			// is greater than the next iteration
 			if(arr[j].argument > arr[j+1].argument){
+			console.log(arr[j].argument);
 
 			// If the condition is true then swap them
 			var temp = arr[j]
