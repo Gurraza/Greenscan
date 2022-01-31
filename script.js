@@ -79,28 +79,30 @@ function loginDebugging() {
 	document.getElementById("searchbar-login-button").setAttribute("class", "hidden");
 }
 
-/*G*/
+/*ALlt med produkter på hemisdan*/
 
 //Mall för varje produkt / artikel
 class Product {
-	constructor (productName, carbonFootprint) {
+	constructor (productName, carbonFootprint, productType, imageFile) {
 		this.productName = productName;
 		this.carbonFootprint = carbonFootprint;
+		this.productType = productType;
+		this.imageFile = imageFile;
 	}
 }
+//Listor för alla produkter
 let allProducts = [];
 let filteredAllProducts = [];
 //Skriv in en ny rad för varje produkt
 function createAllProducts(){
-	addProd("Kött", 5);
+	addProd("Valio Smör 500g", 5, "smör", "ValioSmör500g.jpg");
 	addProd("Majs", 1);
 }
 //Förskortad function
-function addProd(namn="", utsläppt=0)
+function addProd(namn, utsläpp, productType, productType, imageFile)
 {
-	allProducts.push(new Product(namn, utsläppt));
+	allProducts.push(new Product(namn, utsläpp, productType, productType, imageFile));
 }
-//Listor för alla produkter
 
 
 //Skapar varje enskild produkt i html kod
@@ -110,7 +112,7 @@ function writeProduct (productIndex) {
 	div.innerHTML =
 	'<a href="#">'
 	+	'<div class="section-item-top">'
-	+		'<img src="assets/recipes/' + allProducts[productIndex].imageName + '" alt="' + allProducts[productIndex].productName + '" title="'+allProducts[productIndex].productName+'jpg"/>'
+	+		'<img src="assets/recipes/' + allProducts[productIndex].imageName + '" alt="' + allProducts[productIndex].productName + '" title="'+allProducts[productIndex].imageFiles+'"/>'
 	+	'</div>'
 	+	'<div class="section-item-bottom">'
 	+		'<p>'+allProducts[productIndex].productName+'</p>'
@@ -123,8 +125,6 @@ function writeProduct (productIndex) {
 function writeProductsToHTML () {
 	const container = document.getElementById("section-item-container");
 	for(let i = 0; i < allProducts.length; i++) {
-		console.log("2");
 		container.appendChild(writeProduct(i));
 	}
-	console.log("1");
 }
