@@ -60,6 +60,8 @@
 		<section>
 			<h2>Recept</h2>
 			<div id="filter-container">
+
+				<!-- Sortering -->
 				<label>Sortera:</label>
 				<select id="SorteringsSelect">
 					<option id="NameAZ">Namn (A-Ö)</option>
@@ -69,13 +71,18 @@
 					<option id ="PriceHighLow">Pris (Högst Överst)</option>
 				</select>
 				<br />
+
+				<!-- Ekologiskt -->
 				<label for="section-filter-ecological">Ekologiskt:</label>
-				<input type="checkbox" name="section-filter-ecological" id="section-filter-ecological" />
-				<br />
-				<label for="section-filter-localproduced">Närproducerat:</label>
-				<input type="checkbox" name="section-filter-closeMade" id="section-filter-closeMade" />
+				<input type="checkbox" name="section-filter-ecological" id="section-filter-ecological" value="False" />
 				<br />
 
+				<!-- Närproducerat -->
+				<label for="section-filter-localproduced">Närproducerat:</label>
+				<input type="checkbox" name="section-filter-closeMade" id="section-filter-closeMade" value="False" />
+				<br />
+
+				<!-- Slider -->
 				<div id="section-filter-priceslidecontainer">
 					<div id="section-priceslider-minmax">
 						<p>0</p>

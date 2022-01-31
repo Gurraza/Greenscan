@@ -33,7 +33,6 @@ document.getElementById("navForm").addEventListener("submit", (event) => {
 	/*if (query !== "") { // If query isn't only whitespace
 	}*/
 	//alert(`Du har sökt efter: ${document.getElementById("search").value}`); // Prompting the search query
-	console.log("11");
 	SearchForProducts();
 })
 
@@ -153,30 +152,28 @@ function writeProduct (productIndex) {
 }
 
 //Skriver in produkter på html sidan utifrån
+let container;
 function writeProductsToHTML () {
-	var container = "";
+	container = "";
 	container = document.getElementById("section-item-container");
 	for(let i = 0; i < allProducts.length; i++) {
-		console.log("123");
 		container.appendChild(writeProduct(i));
 	}
 }
 
-function SearchForProducts() {
+function SearchForProducts () {
 	let inp = "";
+	var isEko = document.getElementById("section-filter-closeMade").value;
 	inp = search.value;
 	container.innerHTML = "";
-	console.log("1");
+	isEko
 	for(let i = 0; i < allProducts.length; i++)
 	{
-		console.log("2");
 		for(let j = 0; j < allProducts[i].productTaggs.length; j++)
 		{
-			console.log("3");
 			if (inp == allProducts[i].productTaggs[j] || inp == "" || inp == allProducts[i].productName)
 			{
-				console.log("4");
-				if (isEko)
+				if (isEko == true)
 				{
 					console.log("5");
 					if (allProducts[i].isEkological)
@@ -200,17 +197,17 @@ function SorteringsSelect()
 	SortWithFilter("productName");
 }
 const selectElement = document.getElementById('SorteringsSelect');
-
+/*
 selectElement.addEventListener('change', (event) => {
 	SorteringsSelect();
-});
-
+});*/
+/*
 function SortWithFilter(array) {
 	var isEko = document.getElementById("section-filter-closeMade");
 	console.log(isEko);
 	var isCloseMade = document.ggetElementById("section-filter-ecelogical");
 	bblSort(array);
-}
+}*/
 // Bubble sort Implementation using Javascript
 
 
