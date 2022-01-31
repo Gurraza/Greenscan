@@ -14,6 +14,11 @@ document.getElementById("navForm").addEventListener("submit", function (event) {
 	}
 })
 
+/*Start From Index.html*/
+function OnHTMLLoadStart(){
+	WriteProductsToHTML();
+}
+
 /*===== To Top Arrow =====*/
 toTopArrow = document.getElementById("to-top-arrow"); // Fetch "button"
 window.onscroll = function () { scrollFunction() }; // Call scrollFunction on scroll event
@@ -71,4 +76,44 @@ function loginDebugging() {
 		sectionOtherText[i].setAttribute("class", `${sectionOtherText[i].className} hidden`);
 	}
 	document.getElementById("searchbar-login-button").setAttribute("class", "hidden");
+}
+
+/*G*/
+
+class Product{
+	constructor (productName, carbonFootprint, jepeg){
+		this.productName = productName;
+		this.carbonFootprint = carbonFootprint;
+		this.jepeg = jepeg;
+	}
+}
+
+let allProducts = [];
+
+function WriteProductsToHTML()
+{
+	let container = document.getElementById("section-item-container");
+
+	for(let i = 0; i < allProducts.length; i++)
+	{
+		container.appendChild(WriteProduct(i));
+	}
+	console.log("1");
+}
+
+function WriteProduct(productIndex)
+{
+	console.log("2");
+	let div = document.createElement("div");
+	div.setAttribute("class", "section-item");
+	div.innerHTML =
+	'<a href="#">'
+	+	'<div class="section-item-top">'
+	+		'<img src="assets/recipes/'+productIndex.jepeg+'" alt="'+productIndex.productName+'" title="'+productIndex.productName+'"/>'
+	+	'</div>'
+	+	'<div class="section-item-bottom">'
+	+		'<p>Potatis</p>'
+	+	'</div>'
+	+'</a>'
+	return div;
 }
