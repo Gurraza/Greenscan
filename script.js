@@ -79,7 +79,7 @@ function loginDebugging() {
 	document.getElementById("searchbar-login-button").setAttribute("class", "hidden");
 }
 
-/*ALlt med produkter på hemisdan*/
+/*Allt med produkter på hemisdan*/
 
 //Mall för varje produkt / artikel
 class Product {
@@ -90,32 +90,38 @@ class Product {
 		this.imageFile = imageFile;
 	}
 }
-//Listor för alla produkter
+// Listor för alla produkter
 let allProducts = [];
 let filteredAllProducts = [];
-//Skriv in en ny rad för varje produkt
-function createAllProducts(){
-	addProd("Valio Smör 500g", 5, "smör", "ValioSmör500g.jpg");
-	addProd("Majs", 1);
-}
-//Förskortad function
-function addProd(namn, utsläpp, productType, productType, imageFile)
-{
-	allProducts.push(new Product(namn, utsläpp, productType, productType, imageFile));
+// Skriv in en ny rad för varje produkt
+function createAllProducts() {
+	const pathPrefix = "./assets/recipes/";
+
+	addProduct("Valio Smör", 5, "smör", `${pathPrefix}ValioSmör.jpg`);
+	addProduct("Bregott", 5, "smör", `${pathPrefix}BregottSmör.jpg`);
+	addProduct("Steksmör", 5, "smör", `${pathPrefix}Steksmör.jpg`);
+	addProduct("Laktosfritt Bregott", 5, "smör", `${pathPrefix}LaktosfrittSmör.jpg`);
+	addProduct("Becel", 5, "smör", `${pathPrefix}BecelSmör.jpg`);
+
+	addProduct("", 5, "", `${pathPrefix}.jpg`);
 }
 
+// Förskortad function
+function addProduct(namn, utsläpp, productType, imageFile) {
+	allProducts.push(new Product(namn, utsläpp, productType, imageFile));
+}
 
-//Skapar varje enskild produkt i html kod
+// Skapar varje enskild produkt i html kod
 function writeProduct (productIndex) {
 	const div = document.createElement("div");
 	div.setAttribute("class", "section-item");
 	div.innerHTML =
 	'<a href="#">'
 	+	'<div class="section-item-top">'
-	+		'<img src="assets/recipes/' + allProducts[productIndex].imageName + '" alt="' + allProducts[productIndex].productName + '" title="'+allProducts[productIndex].imageFiles+'"/>'
+	+		'<img src="' + allProducts[productIndex].imageFile + '" alt="' + allProducts[productIndex].productName + '" title="' + allProducts[productIndex].productName + '"/>'
 	+	'</div>'
 	+	'<div class="section-item-bottom">'
-	+		'<p>'+allProducts[productIndex].productName+'</p>'
+	+		'<p>' + allProducts[productIndex].productName+'</p>'
 	+	'</div>'
 	+'</a>'
 	return div;
