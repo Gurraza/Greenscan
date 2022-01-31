@@ -106,16 +106,16 @@ function createAllProducts() {
 
 	addProduct("Pasta Penne", 1, ["pasta"], `${pathPrefix}PastaPenne.jpg`);
 	addProduct("Pasta Spagetthi", 52, ["pasta"], `${pathPrefix}PastaSpagetthi.jpg`);
-	addProduct("Steksmör", 445, ["pasta"], `${pathPrefix}Steksmör.jpg`);
-	addProduct("Laktosfritt Bregott", 521, ["pasta"], `${pathPrefix}LaktosfrittSmör.jpg`);
-	addProduct("Becel", 235, ["pasta"], `${pathPrefix}BecelSmör.jpg`);
+	addProduct("Pasta Gnocchi", 445, ["pasta"], `${pathPrefix}PastaGnocchi.jpg`);
+	addProduct("pasta Farfalle", 521, ["pasta"], `${pathPrefix}PastaFarfalle.jpg`);
 
-	addProduct("Valio Smör", 25, "smör", `${pathPrefix}ValioSmör.jpg`);
-	addProduct("Bregott", 985, "smör", `${pathPrefix}BregottSmör.jpg`);
-	addProduct("Steksmör", 2225, "smör", `${pathPrefix}Steksmör.jpg`);
-	addProduct("Laktosfritt Bregott", 3, "smör", `${pathPrefix}LaktosfrittSmör.jpg`);
+	addProduct("Bravo Tropisk", 25, ["juice", "frukost"], `${pathPrefix}BravoTropiskJuice.jpg`);
+	addProduct("Bravo Äppeljuice", 985, ["juice", "frukost"], `${pathPrefix}BravoÄppelJuice.jpg`);
+	addProduct("Godmorgon Apelsinjuice", 2225, ["juice", "frukost"], `${pathPrefix}GodMorgonApelsinJuice.jpg`);
+	addProduct("Godmorgon Äppeljuice", 3, ["juice", "frukost"], `${pathPrefix}GodMorgonÄpple.jpg`);
+	addProduct("Brämhults Apelsinjuice", 235, ["pasta"], `${pathPrefix}BrämhultsApelsinJuice.jpg`);
 
-	SortCarbonFootprint(allProducts);
+	SortWithFilter("carbon");
 }
 
 // Förskortad function
@@ -164,7 +164,7 @@ function SearchForProducts()
 		}
 	}
 }
-function SortCarbonFootprint(arr)
+function SortWithFilter(arr)
 {
 	bblSort(arr);
 }
@@ -172,8 +172,21 @@ function SortCarbonFootprint(arr)
 
 
 // Creating the bblSort function
-function bblSort(arr){
-
+function bblSort(arg){
+	let argument = "";
+	if (arg == "carbon")
+	{
+		argument = "carbon";
+	}
+	else if (arg == "price")
+	{
+		argument = "price";
+	}
+	else if (arg == "calories")
+	{
+		argument = "calories"
+	}
+	arr = allProducts;
 	for(var i = 0; i < arr.length; i++){
 
 		// Last i elements are already in place
@@ -181,7 +194,7 @@ function bblSort(arr){
 
 			// Checking if the item at present iteration
 			// is greater than the next iteration
-			if(arr[j].carbonFootprint > arr[j+1].carbonFootprint){
+			if(arr[j].argument > arr[j+1].argument){
 
 			// If the condition is true then swap them
 			var temp = arr[j]
