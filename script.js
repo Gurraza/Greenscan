@@ -15,8 +15,9 @@ document.getElementById("navForm").addEventListener("submit", function (event) {
 })
 
 /*Start From Index.html*/
-function OnHTMLLoadStart() {
-	WriteProductsToHTML();
+function onHTMLLoadStart() {
+	createAllProducts();// måste vara över writeProductsToHTML
+	writeProductsToHTML();
 }
 
 /*===== To Top Arrow =====*/
@@ -87,36 +88,43 @@ class Product {
 		this.carbonFootprint = carbonFootprint;
 	}
 }
-//Skriv in en ny rad för varje produkt
-function createAllProducts(){
-	allProducts.push(new Product("Potatis", 5));
-}
-//Listor för alla produkter
 let allProducts = [];
 let filteredAllProducts = [];
-
-//Skriver in produkter på html sidan utifrån. Ska fixa filter och sortering
-function writeProductsToHTML () {
-	const container = document.getElementById("section-item-container");
-	for(let i = 0; i < allProducts.length; i++) {
-		container.appendChild(WriteProduct(i));
-	}
-	console.log("1");
+//Skriv in en ny rad för varje produkt
+function createAllProducts(){
+	addProd("Kött", 5);
+	addProd("Majs", 1);
 }
+//Förskortad function
+function addProd(namn="", utsläppt=0)
+{
+	allProducts.push(new Product(namn, utsläppt));
+}
+//Listor för alla produkter
+
 
 //Skapar varje enskild produkt i html kod
 function writeProduct (productIndex) {
-	console.log("2");
 	const div = document.createElement("div");
 	div.setAttribute("class", "section-item");
 	div.innerHTML =
 	'<a href="#">'
 	+	'<div class="section-item-top">'
-	+		'<img src="assets/recipes/' + allProducts[productIndex].imageName + '" alt="' + allProducts[productIndex].productName + '" title="' + allProducts[productIndex].productName+'jpg' + '"/>'
+	+		'<img src="assets/recipes/' + allProducts[productIndex].imageName + '" alt="' + allProducts[productIndex].productName + '" title="'+allProducts[productIndex].productName+'jpg"/>'
 	+	'</div>'
 	+	'<div class="section-item-bottom">'
-	+		'<p>Potatis</p>'
+	+		'<p>'+allProducts[productIndex].productName+'</p>'
 	+	'</div>'
 	+'</a>'
 	return div;
+}
+
+//Skriver in produkter på html sidan utifrån. Ska fixa filter och sortering
+function writeProductsToHTML () {
+	const container = document.getElementById("section-item-container");
+	for(let i = 0; i < allProducts.length; i++) {
+		console.log("2");
+		container.appendChild(writeProduct(i));
+	}
+	console.log("1");
 }
