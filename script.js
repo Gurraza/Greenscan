@@ -115,7 +115,7 @@ function createAllProducts() {
 	addProduct("Godmorgon Äppeljuice", 3, ["juice", "frukost"], `${pathPrefix}GodMorgonÄpple.jpg`);
 	addProduct("Brämhults Apelsinjuice", 235, ["pasta"], `${pathPrefix}BrämhultsApelsinJuice.jpg`);
 
-	SortWithFilter("carbon");
+	SortWithFilter("product");
 }
 
 // Förskortad function
