@@ -238,8 +238,9 @@ nav ul li form input[type=image] {
 
 /* Section */
 section {
-	background-color: #b8c6db;
-	background: linear-gradient(0deg, #b8c6db 0%, #f5f7fa 100%);
+	background-color: white;
+	/*background-color: #b8c6db;*/
+	/*background: linear-gradient(0deg, #b8c6db 0%, #f5f7fa 100%);*/
 	padding: 15px;
 	margin: 16px 0;
 	font-size: 16px;
