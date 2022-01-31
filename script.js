@@ -80,17 +80,23 @@ function loginDebugging() {
 
 /*G*/
 
+//Mall för varje produkt / artikel
 class Product {
-	constructor (productName, carbonFootprint, imageName) {
+	constructor (productName, carbonFootprint) {
 		this.productName = productName;
 		this.carbonFootprint = carbonFootprint;
-		this.imageName = imageName;
 	}
 }
+//Skriv in en ny rad för varje produkt
+function createAllProducts(){
+	allProducts.push(new Product("Potatis", 5));
+}
+//Listor för alla produkter
+let allProducts = [];
+let filteredAllProducts = [];
 
-let allProducts = [new Product("")];
-
-function WriteProductsToHTML () {
+//Skriver in produkter på html sidan utifrån. Ska fixa filter och sortering
+function writeProductsToHTML () {
 	const container = document.getElementById("section-item-container");
 	for(let i = 0; i < allProducts.length; i++) {
 		container.appendChild(WriteProduct(i));
@@ -98,14 +104,15 @@ function WriteProductsToHTML () {
 	console.log("1");
 }
 
-function WriteProduct (productIndex) {
+//Skapar varje enskild produkt i html kod
+function writeProduct (productIndex) {
 	console.log("2");
 	const div = document.createElement("div");
 	div.setAttribute("class", "section-item");
 	div.innerHTML =
 	'<a href="#">'
 	+	'<div class="section-item-top">'
-	+		'<img src="assets/recipes/' + allProducts[productIndex].imageName + '" alt="' + productIndex.productName + '" title="' + productIndex.productName + '"/>'
+	+		'<img src="assets/recipes/' + allProducts[productIndex].imageName + '" alt="' + allProducts[productIndex].productName + '" title="' + allProducts[productIndex].productName+'jpg' + '"/>'
 	+	'</div>'
 	+	'<div class="section-item-bottom">'
 	+		'<p>Potatis</p>'
