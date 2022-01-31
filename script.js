@@ -9,9 +9,10 @@
 document.getElementById("navForm").addEventListener("submit", function (event) {
 	event.preventDefault(); // Prevents website to reload on submit
 	query = document.getElementById("search").value.trim(); // Fetch search query
-	if (query !== "") { // If query isn't only whitespace
-		alert(`Du har sökt efter: ${document.getElementById("search").value}`); // Prompting the search query
-	}
+	/*if (query !== "") { // If query isn't only whitespace
+		//alert(`Du har sökt efter: ${document.getElementById("search").value}`); // Prompting the search query
+	}*/
+	SearchForProducts();
 })
 
 /*Start From Index.html*/
@@ -97,13 +98,22 @@ let filteredAllProducts = [];
 function createAllProducts() {
 	const pathPrefix = "./assets/recipes/";
 
-	addProduct("Valio Smör", 5, "smör", `${pathPrefix}ValioSmör.jpg`);
-	addProduct("Bregott", 5, "smör", `${pathPrefix}BregottSmör.jpg`);
-	addProduct("Steksmör", 5, "smör", `${pathPrefix}Steksmör.jpg`);
-	addProduct("Laktosfritt Bregott", 5, "smör", `${pathPrefix}LaktosfrittSmör.jpg`);
-	addProduct("Becel", 5, "smör", `${pathPrefix}BecelSmör.jpg`);
+	addProduct("Valio Smör", 2, "smör", `${pathPrefix}ValioSmör.jpg`);
+	addProduct("Bregott", 522, "smör", `${pathPrefix}BregottSmör.jpg`);
+	addProduct("Steksmör", 53, "smör", `${pathPrefix}Steksmör.jpg`);
+	addProduct("Laktosfritt Bregott", 15, "smör", `${pathPrefix}LaktosfrittSmör.jpg`);
+	addProduct("Becel", 995, "smör", `${pathPrefix}BecelSmör.jpg`);
 
-	addProduct("", 5, "", `${pathPrefix}.jpg`);
+	addProduct("Pasta Penne", 95, "pasta", `${pathPrefix}PastaPenne.jpg`);
+	addProduct("Bregott", 52, "smör", `${pathPrefix}BregottSmör.jpg`);
+	addProduct("Steksmör", 445, "smör", `${pathPrefix}Steksmör.jpg`);
+	addProduct("Laktosfritt Bregott", 521, "smör", `${pathPrefix}LaktosfrittSmör.jpg`);
+	addProduct("Becel", 235, "smör", `${pathPrefix}BecelSmör.jpg`);
+
+	addProduct("Valio Smör", 25, "smör", `${pathPrefix}ValioSmör.jpg`);
+	addProduct("Bregott", 985, "smör", `${pathPrefix}BregottSmör.jpg`);
+	addProduct("Steksmör", 2225, "smör", `${pathPrefix}Steksmör.jpg`);
+	addProduct("Laktosfritt Bregott", 1, "smör", `${pathPrefix}LaktosfrittSmör.jpg`);
 }
 
 // Förskortad function
@@ -128,9 +138,23 @@ function writeProduct (productIndex) {
 }
 
 //Skriver in produkter på html sidan utifrån. Ska fixa filter och sortering
+let container;
 function writeProductsToHTML () {
-	const container = document.getElementById("section-item-container");
+	container = document.getElementById("section-item-container");
 	for(let i = 0; i < allProducts.length; i++) {
 		container.appendChild(writeProduct(i));
+	}
+}
+
+function SearchForProducts()
+{
+	let inp = search.value;
+	container.innerHTML = "";
+	for(let i = 0; i < allProducts.length; i++)
+	{
+		if(inp == allProducts[i].productType || inp == "")
+		{
+			container.appendChild(writeProduct(i));
+		}
 	}
 }
