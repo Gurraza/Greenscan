@@ -15,7 +15,7 @@ document.getElementById("navForm").addEventListener("submit", function (event) {
 })
 
 /*Start From Index.html*/
-function OnHTMLLoadStart(){
+function OnHTMLLoadStart() {
 	WriteProductsToHTML();
 }
 
@@ -80,36 +80,32 @@ function loginDebugging() {
 
 /*G*/
 
-class Product{
-	constructor (productName, carbonFootprint, jepeg){
+class Product {
+	constructor (productName, carbonFootprint, imageName) {
 		this.productName = productName;
 		this.carbonFootprint = carbonFootprint;
-		this.jepeg = jepeg;
+		this.imageName = imageName;
 	}
 }
 
-let allProducts = [];
+let allProducts = [new Product("")];
 
-function WriteProductsToHTML()
-{
-	let container = document.getElementById("section-item-container");
-
-	for(let i = 0; i < allProducts.length; i++)
-	{
+function WriteProductsToHTML () {
+	const container = document.getElementById("section-item-container");
+	for(let i = 0; i < allProducts.length; i++) {
 		container.appendChild(WriteProduct(i));
 	}
 	console.log("1");
 }
 
-function WriteProduct(productIndex)
-{
+function WriteProduct (productIndex) {
 	console.log("2");
-	let div = document.createElement("div");
+	const div = document.createElement("div");
 	div.setAttribute("class", "section-item");
 	div.innerHTML =
 	'<a href="#">'
 	+	'<div class="section-item-top">'
-	+		'<img src="assets/recipes/'+productIndex.jepeg+'" alt="'+productIndex.productName+'" title="'+productIndex.productName+'"/>'
+	+		'<img src="assets/recipes/' + allProducts[productIndex].imageName + '" alt="' + productIndex.productName + '" title="' + productIndex.productName + '"/>'
 	+	'</div>'
 	+	'<div class="section-item-bottom">'
 	+		'<p>Potatis</p>'
