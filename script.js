@@ -131,8 +131,8 @@ function createAllProducts() {
 }
 
 // Förskortad function
-function addProduct(namn, utsläpp, productType, imageFile, isCloseMade, isEko) {
-	allProducts.push(new Product(namn, utsläpp, productType, imageFile, isCloseMade, isEko));
+function addProduct(namn, utsläpp, productType, imageFile, price, isCloseMade, isEkol) {
+	allProducts.push(new Product(namn, utsläpp, productType, imageFile, price, isCloseMade, isEkol));
 }
 
 // Skapar varje enskild produkt i html kod
@@ -163,7 +163,8 @@ function writeProductsToHTML () {
 
 function SearchForProducts () {
 	let inp = "";
-	var isEko = document.getElementById("section-filter-closeMade").value;
+	var isEko = document.getElementById("section-filter-ecological").checked;
+	console.log(isEko);
 	inp = search.value;
 	container.innerHTML = "";
 	isEko
@@ -175,17 +176,20 @@ function SearchForProducts () {
 			{
 				if (isEko == true)
 				{
-					console.log("5");
-					if (allProducts[i].isEkological)
+					console.log(allProducts[i].isEkological);
+
+					if (allProducts[i].isEkological == true)
 					{
 						console.log("6");
 						container.appendChild(writeProduct(i));
+						break;
 					}
 				}
 				else if (!isEko)
 				{
 					console.log("7");
 					container.appendChild(writeProduct(i));
+					break;
 				}
 			}
 		}
