@@ -44,7 +44,7 @@
 					<button id="searchbar-login-button" title="Logga in på ditt konto">Logga in</button>
 					<form id="navForm">
 						<input type="text" name="search" id="search" placeholder="Sök..." autocomplete="off" />
-						<input type="image" src="assets/Search.png" title="Sök!"/>
+						<input type="image" src="assets/Search.png" title="Sök!" />
 					</form>
 				</li>
 				<li id="translate-english">
@@ -56,7 +56,7 @@
 			</ul>
 		</nav>
 
-		<!-- First Section -->
+		<!-- Section with content -->
 		<section>
 			<h2>Recept</h2>
 			<div id="filter-container">
@@ -66,9 +66,9 @@
 				<select id="SorteringsSelect">
 					<option id="NameAZ">Namn (A-Ö)</option>
 					<option id="NameZA">Namn (Ö-A)</option>
-					<option id ="CarbonLowHigh">Koldioxidutsläpp (Lägst Överst)</option>
+					<option id="CarbonLowHigh">Koldioxidutsläpp (Lägst Överst)</option>
 					<option id="PriceLowHigh">Pris (Lägst Överst)</option>
-					<option id ="PriceHighLow">Pris (Högst Överst)</option>
+					<option id="PriceHighLow">Pris (Högst Överst)</option>
 				</select>
 				<br />
 
@@ -99,14 +99,18 @@
 				Ekologiskt (Checkbox)
 				Närproducerat (Checkbox)
 				(Min)/Max pris (Slider)
-			 -->
+			-->
 			<!-- Sortering
 				Pris lågt-högt
 				Pris högt-lågt
 				Utsläpp lågt-högt
 				Utsläpp högt-lågt
-			 -->
+			-->
+
+			<!-- Div with all products / items -->
 			<div id="section-item-container"></div>
+
+			<!-- Information segment -->
 			<h2 id="section-first-title">Om Oss</h2>
 			<p id="section-first-text">
 				Greenscan är ett företag som jobbar mot en klimatsmartare vardag, där appen och denna hemsida förser användaren med information om recept, produkter och artiklar som primärt är klimatsmarta. Andra filtreringar kan också vara närproducerat, ekologiskt och självklart pris. Vi anväder oss utav avancerade algoritmer med hjälp utav AI för att filtrera och rekommendera mat till just dig! Dessutom har vi en högst sofistikerad chattbott till din förfogan som befinner sig i det nedersta högra hörnet av din skärm, där du kan ställa alla dina frågor angående artiklar mellan jord till bord.
@@ -117,9 +121,9 @@
 			<p class="section-other-text">
 				<!--Lorem ipsum dolor sit amet.-->
 			</p>
+
 			<br /><br />
-			<!-- Vet inte om vi ska ha parallax i <section>. Detta är mest ett exemepl på hur/att man kan ha en -->
-			<div id="parallax1"></div>
+			<div id="section-parallax"></div>
 		</section>
 
 		<!-- Footer -->
@@ -156,6 +160,8 @@
 				<li><a href="#">Integritet</a></li>
 				<li><a href="#">Kakor</a></li>
 			</ul>
+
+			<!-- The company's famous dance -->
 			<br />
 			<img src="assets/Hallert.gif" id="footer-hallert" alt="Gustaf Hallert som demonstrerar företagets berömda dans" title="Gustaf Hallert som demonstrerar företagets berömda dans" />
 		</footer>
@@ -171,9 +177,9 @@
 			integrationID: "cff0441d-173c-40f7-a7b1-2d9807b10233", // The ID of this integration.
 			region: "eu-de", // The region your integration is hosted in.
 			serviceInstanceID: "58187553-a969-41b2-8f84-b340db50e0b6", // The ID of your service instance.
-			onLoad: function (instance) { instance.render(); }
+			onLoad: (instance) => { instance.render(); }
 		};
-		setTimeout(function() {
+		setTimeout(() => {
 			const scriptElement = document.createElement('script');
 			scriptElement.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js"
 			document.head.appendChild(scriptElement);

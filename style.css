@@ -5,13 +5,13 @@
 */
 
 
-/*===== Fonts =====*/
+/*========== Fonts ==========*/
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap'); /* Righteous */
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap'); /* Oswald */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap'); /* Open Sans */
 
 
-/*===== Media Rules =====*/
+/*========== Media Rules ==========*/
 @media only screen and (max-width: 700px) {
 	#content-container {
 		padding: 0;
@@ -45,8 +45,7 @@
 	}
 }
 
-/*===== Scrollbar =====*/
-
+/*========== Scrollbar ==========*/
 ::-webkit-scrollbar {
 	width: 10px;
 }
@@ -66,8 +65,8 @@
 	background: linear-gradient(0deg, #a35ebe 0%, #796fd8 50%, #2a779b 100%);
 }
 
-/*===== Elements =====*/
-
+/*========== Elements ==========*/
+/* Whole page */
 html {
 	scroll-behavior: smooth;
 	cursor: auto;
@@ -89,6 +88,7 @@ body {
 	background-size: cover;
 }
 
+/* All links */
 a {
 	text-decoration: underline;
 }
@@ -130,12 +130,11 @@ h1 {
 	text-align: center;
 	font-size: 50px;
 	font-family: 'Open Sans', sans-serif;
-	/*color: #068f06;*/
 	color: #f6f6ff;
 	letter-spacing: 5px;
 }
 
-/*Hide elements*/
+/* Hidden elements */
 .hidden{
 	display: none;
 }
@@ -146,7 +145,7 @@ h1 {
 	margin: 0 auto;
 }
 
-/* Nav-bar */
+/* Navbar */
 nav {
 	background-color: #be1bff;
 	background: linear-gradient(180deg, #ef3aff 0%, #9955e6 50%, #6d38ff 100%);
@@ -379,8 +378,8 @@ section h2 {
 	transition: transform ease-in-out 0.2s;
 }
 
-#parallax1 {
-	/*https://duckduckgo.com/?q=tulip+field+wallpaper&t=opera&iar=images&iax=images&ia=images&iai=https%3A%2F%2Fimages5.alphacoders.com%2F696%2F696134.jpg*/
+#section-parallax {
+	/* https://duckduckgo.com/?t=ffab&q=potato+field+wallpaper&iax=images&ia=images&iai=http%3A%2F%2Fcrusaderwater.com%2Fwp-content%2Fuploads%2F2019%2F02%2Fbigstock-Potato-Plantations-Grow-In-The-252757411resize-e1553023170480.jpg */
 	background-image: url("assets/Potato-field.jpg");
 	min-height: 300px;
 	width: 100%;
