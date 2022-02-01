@@ -25,14 +25,15 @@ class Product {
 }
 
 /* Slider value change */
-slider.oninput = () => {
+slider.oninput = function () {
 	output.innerHTML = `${this.value} kr`;
+	console.log(this.value);
 }
 
 /*========== Adding submit event listener to nav-form ==========*/
-document.getElementById("navForm").addEventListener("submit", (event) => {
+document.getElementById("navForm").addEventListener("submit", function (event) {
 	event.preventDefault(); // Prevents website to reload on submit
-	query = document.getElementById("search").value.trim(); // Fetch search query
+	// query = document.getElementById("search").value.trim(); // Fetch search query
 	SearchForProducts();
 })
 
@@ -77,13 +78,13 @@ function success(decodeIDToken) {
 	document.getElementById("searchbar-login-button").setAttribute("class", "hidden"); // Hide login button
 }
 /* Asynchronously log in */
-(async () => {
+(async function () {
 	const appID = new AppID();
 	await appID.init({
 		clientId: "d646f530-1146-48ec-950b-d2498bc93842",
 		discoveryEndpoint: "https://eu-de.appid.cloud.ibm.com/oauth/v4/fe3425ce-fa7a-40df-857d-d8f5acc06348/.well-known/openid-configuration"
 	})
-	document.getElementById("searchbar-login-button").addEventListener("click", async () => {
+	document.getElementById("searchbar-login-button").addEventListener("click", async function () {
 		try {
 			const tokens = await appID.signin();
 			success(tokens.idTokenPayload);
@@ -165,10 +166,9 @@ function writeProductsToHTML() {
 }
 
 function SearchForProducts() {
-	let input = "";
 	let isEko = document.getElementById("section-filter-ecological").checked;
 	// console.log(isEko);
-	input = search.value.toLowerCase();
+	let input = search.value.toLowerCase().trim();
 	container.innerHTML = "";
 	isEko
 	for (let i = 0; i < allProducts.length; i++) {
